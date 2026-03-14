@@ -5,18 +5,18 @@ This document manages the relationships between BDD scenarios, requirements, kno
 
 ## Relationship Table
 
-| BDD Feature ID | Test Case ID | Requirement ID | Skill ID | Rule Basis | Global Process Node | Status |
-|---------------|-------------|---------------|----------|------------|---------------------|--------|
-| FT-IM-CALC-001 | TC-IM-CALC-001 | REQ-001 | SKILL-001 | IO-INTRO-001 (v1.4) | VaR Platform Overview | Active |
-| FT-IM-CALC-002 | TC-IM-CALC-002 | REQ-001 | SKILL-001 | IO-INTRO-001 (v1.4) | VaR Platform Overview | Active |
-| FT-IM-CALC-003 | TC-IM-CALC-003 | REQ-001 | SKILL-001 | IO-INTRO-001 (v1.4) | VaR Platform Overview | Active |
-| FT-IM-CALC-004 | TC-IM-CALC-004 | REQ-001 | SKILL-001 | IO-INTRO-001 (v1.4) | VaR Platform Overview | Active |
-| FT-RISK-PARAM-001 | TC-RISK-PARAM-001 | REQ-002 | SKILL-001 | IO-INTRO-005 (v1.4) | Risk Parameter Dissemination Process | Active |
-| FT-RISK-PARAM-002 | TC-RISK-PARAM-002 | REQ-002 | SKILL-001 | IO-INTRO-005 (v1.4) | Risk Parameter Dissemination Process | Active |
-| FT-RISK-PARAM-003 | TC-RISK-PARAM-003 | REQ-003 | SKILL-001 | IO-INTRO-004 (v1.4) | Margin Calculation Framework Definition | Active |
-| FT-COMPLIANCE-001 | TC-COMPLIANCE-001 | REQ-004 | SKILL-001 | IO-INTRO-003 (v1.4) | Regulatory Compliance Assessment | Active |
-| FT-COMPLIANCE-002 | TC-COMPLIANCE-002 | REQ-004 | SKILL-001 | IO-INTRO-003 (v1.4) | Regulatory Compliance Assessment | Active |
-| FT-COMPLIANCE-003 | TC-COMPLIANCE-003 | REQ-004 | SKILL-001 | IO-INTRO-003 (v1.4) | Regulatory Compliance Assessment | Active |
+| BDD Feature ID | Test Case ID | Requirement ID | Skill ID | Rule Basis | Global Process Node | Review Status | Confidence Level | Status |
+|---------------|-------------|---------------|----------|------------|---------------------|---------------|------------------|--------|
+| FT-IM-CALC-001 | TC-IM-CALC-001 | REQ-001 | SKILL-001 | IO-INTRO-001 (v1.4) | VaR Platform Overview | Pending Review | Medium (3) | Active |
+| FT-IM-CALC-002 | TC-IM-CALC-002 | REQ-001 | SKILL-001 | IO-INTRO-001 (v1.4) | VaR Platform Overview | Pending Review | Medium (3) | Active |
+| FT-IM-CALC-003 | TC-IM-CALC-003 | REQ-001 | SKILL-001 | IO-INTRO-001 (v1.4) | VaR Platform Overview | Pending Review | Medium (3) | Active |
+| FT-IM-CALC-004 | TC-IM-CALC-004 | REQ-001 | SKILL-001 | IO-INTRO-001 (v1.4) | VaR Platform Overview | Pending Review | Medium (3) | Active |
+| FT-RISK-PARAM-001 | TC-RISK-PARAM-001 | REQ-002 | SKILL-001 | IO-INTRO-005 (v1.4) | Risk Parameter Dissemination Process | Pending Review | Medium (3) | Active |
+| FT-RISK-PARAM-002 | TC-RISK-PARAM-002 | REQ-002 | SKILL-001 | IO-INTRO-005 (v1.4) | Risk Parameter Dissemination Process | Pending Review | Medium (3) | Active |
+| FT-RISK-PARAM-003 | TC-RISK-PARAM-003 | REQ-003 | SKILL-001 | IO-INTRO-004 (v1.4) | Margin Calculation Framework Definition | Pending Review | Medium (3) | Active |
+| FT-COMPLIANCE-001 | TC-COMPLIANCE-001 | REQ-004 | SKILL-001 | IO-INTRO-003 (v1.4) | Regulatory Compliance Assessment | Pending Review | Medium (3) | Active |
+| FT-COMPLIANCE-002 | TC-COMPLIANCE-002 | REQ-004 | SKILL-001 | IO-INTRO-003 (v1.4) | Regulatory Compliance Assessment | Pending Review | Medium (3) | Active |
+| FT-COMPLIANCE-003 | TC-COMPLIANCE-003 | REQ-004 | SKILL-001 | IO-INTRO-003 (v1.4) | Regulatory Compliance Assessment | Pending Review | Medium (3) | Active |
 
 ## Reference Bidirectional Consistency
 
@@ -41,18 +41,18 @@ This document manages the relationships between BDD scenarios, requirements, kno
 
 ## Change Tracking
 
-| BDD Feature ID | Last Updated | Status | Change Type | Reason |
-|---------------|-------------|--------|-------------|--------|
-| FT-IM-CALC-001 | 2026-03-14 | Active | Created | Initial generation |
-| FT-IM-CALC-002 | 2026-03-14 | Active | Created | Initial generation |
-| FT-IM-CALC-003 | 2026-03-14 | Active | Created | Initial generation |
-| FT-IM-CALC-004 | 2026-03-14 | Active | Created | Initial generation |
-| FT-RISK-PARAM-001 | 2026-03-14 | Active | Created | Initial generation |
-| FT-RISK-PARAM-002 | 2026-03-14 | Active | Created | Initial generation |
-| FT-RISK-PARAM-003 | 2026-03-14 | Active | Created | Initial generation |
-| FT-COMPLIANCE-001 | 2026-03-14 | Active | Created | Initial generation |
-| FT-COMPLIANCE-002 | 2026-03-14 | Active | Created | Initial generation |
-| FT-COMPLIANCE-003 | 2026-03-14 | Active | Created | Initial generation |
+| BDD Feature ID | Last Updated | Review Status | Confidence Level | Status | Change Type | Reason |
+|---------------|-------------|---------------|------------------|--------|-------------|--------|
+| FT-IM-CALC-001 | 2026-03-14 | Pending Review | Medium (3) | Active | Created | Initial generation |
+| FT-IM-CALC-002 | 2026-03-14 | Pending Review | Medium (3) | Active | Created | Initial generation |
+| FT-IM-CALC-003 | 2026-03-14 | Pending Review | Medium (3) | Active | Created | Initial generation |
+| FT-IM-CALC-004 | 2026-03-14 | Pending Review | Medium (3) | Active | Created | Initial generation |
+| FT-RISK-PARAM-001 | 2026-03-14 | Pending Review | Medium (3) | Active | Created | Initial generation |
+| FT-RISK-PARAM-002 | 2026-03-14 | Pending Review | Medium (3) | Active | Created | Initial generation |
+| FT-RISK-PARAM-003 | 2026-03-14 | Pending Review | Medium (3) | Active | Created | Initial generation |
+| FT-COMPLIANCE-001 | 2026-03-14 | Pending Review | Medium (3) | Active | Created | Initial generation |
+| FT-COMPLIANCE-002 | 2026-03-14 | Pending Review | Medium (3) | Active | Created | Initial generation |
+| FT-COMPLIANCE-003 | 2026-03-14 | Pending Review | Medium (3) | Active | Created | Initial generation |
 
 ## Rollback Plan
 
