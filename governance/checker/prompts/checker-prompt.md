@@ -3,6 +3,59 @@
 ## Overview
 This document contains the prompts for the LLM Checker System, which is designed to validate the outputs of the Marker LLM (Prompt 6 and 7) against the original business rules and requirements.
 
+## Template References
+
+When executing these checker prompts, use the following templates for output formatting:
+
+### 1. Analysis Template
+**Location**: `governance/checker/analysis/analysis-template.md`
+
+Use this template for detailed difference analysis including:
+- Structural analysis with component validation tables
+- Content analysis with validation criteria
+- Reference analysis for traceability verification
+- Confidence level assessment with scoring methodology
+- Difference analysis and optimization suggestions
+- Preservation section for passed content
+
+### 2. Output Template
+**Location**: `governance/checker/outputs/output-template.md`
+
+Use this template for validation reports including:
+- Validation overview with status and statistics
+- Item-by-item results table
+- Confidence level assessment and distribution
+- Difference analysis (structural, content, reference)
+- Optimization suggestions with prioritization
+- Risk assessment with mitigation strategies
+- Human review recommendations
+- Implementation guide with rollback plan
+
+### 3. Feedback Templates
+**Location**: `governance/checker/templates/`
+
+For human review feedback, use:
+- **Initial Review**: `feedback-template-initial-review.md` - for first review stage
+- **Peer Review**: `feedback-template-peer-review.md` - for peer validation
+- **Final Approval**: `feedback-template-final-approval.md` - for final decision
+- **General Feedback**: `feedback-template-general.md` - for other feedback scenarios
+
+### 4. Exit Report Template
+**Location**: `governance/checker/templates/exit-report-template.md`
+
+Use this template when exit criteria are met (max iterations, confidence level below threshold, stagnation, or review consensus not reached).
+
+## Configuration References
+
+### Exit Criteria Configuration
+**Location**: `governance/checker/config/exit-criteria-and-optimization.md`
+
+Refer to this document for:
+- Exit criteria definition (max iterations, confidence thresholds, stagnation detection)
+- Exit mechanism workflow
+- Optimization strategies (requirement refinement, prompt engineering, model enhancement, hybrid approach, acceptance with mitigation)
+- Implementation process and escalation path
+
 ## Checker Prompt for Prompt 6 (Test Case Generation)
 
 ```markdown
