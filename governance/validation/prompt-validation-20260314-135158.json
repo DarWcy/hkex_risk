@@ -1,0 +1,30 @@
+{
+  "PromptFile": "C:\\Codes\\hkex_risk\\chat-prompt-en.md",
+  "ReadyForCommit": false,
+  "UpdateRecordExists": true,
+  "Timestamp": "2026-03-14T13:51:58.3984004+08:00",
+  "TotalPromptsExpected": 15,
+  "TotalPromptsFound": 0,
+  "Validation": {
+    "Issues": [],
+    "Valid": false,
+    "MissingPrompts": [
+      "Prompt 1",
+      "Prompt 2",
+      "Prompt 3",
+      "Prompt 4",
+      "Prompt 5",
+      "Prompt 6",
+      "Prompt 7",
+      "Prompt 8",
+      "Prompt 9",
+      "Prompt 10",
+      "Prompt 11",
+      "Prompt 12",
+      "Prompt 13",
+      "Prompt 14",
+      "Prompt 15"
+    ],
+    "FoundPrompts": []
+  }
+}
