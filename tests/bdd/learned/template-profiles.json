@@ -1,81 +1,108 @@
 {
   "version": "1.0",
-  "last_updated": "2026-03-14T13:05:00Z",
-  "template_profiles": {
-    "type-a-ba": {
-      "name": "Business Analyst Template",
-      "description": "Business-focused BDD templates with business rule verification",
+  "generated_at": "2026-03-14T14:30:00Z",
+  "templates": [
+    {
+      "template_id": "type-a-ba",
+      "name": "Type A (BA) - Business-Focused Test Case Template",
+      "type": "business_analyst",
+      "patterns": {
+        "test_case_id_format": "TC-[module]-[number]",
+        "scenario_format": "Verify [system] [action] for [object]",
+        "preconditions_format": "[System] is [status]; [Resource] is available; [Data] is loaded",
+        "test_steps_format": "1. [Action]; 2. [Action]; 3. [Action]; 4. [Action]",
+        "expected_results_format": "[Result] is [status] ([Rule ID])",
+        "rule_basis_format": "[Path] + [Rule ID] + [Version]",
+        "reference_verification_format": "Skill: [Skill ID]; Verify: [Verification]"
+      },
       "characteristics": {
-        "language_style": "business",
-        "technical_terms": "low",
-        "sentence_structure": "simple",
-        "gherkin_keywords": ["Given", "When", "Then", "And"]
-      },
-      "structure": {
-        "feature_organization": "by_business_process",
-        "scenario_count": "3-5_per_feature",
-        "background_usage": "optional",
-        "tag_conventions": ["@business", "@rule"]
-      },
-      "examples": []
+        "focus": "business_rule_verification",
+        "detail_level": "medium",
+        "language_style": "formal",
+        "structure": "tabular",
+        "traceability": "high"
+      }
     },
-    "type-b-qa-lead": {
-      "name": "QA Lead Template",
-      "description": "Quality-focused BDD templates with test case integration",
+    {
+      "template_id": "type-b-qa",
+      "name": "Type B (QA Lead) - Quality-Focused Test Case Template",
+      "type": "qa_lead",
+      "patterns": {
+        "test_case_id_format": "TC-[module]-[number]",
+        "scenario_format": "Verify [system] [action] for [object]",
+        "priority_format": "P[0-3] ([Level])",
+        "test_type_format": "[Type]",
+        "preconditions_format": "[System] is [status]; [Resource] is available",
+        "test_steps_format": "1. [Action]; 2. [Action]; 3. [Action]; 4. [Action]",
+        "expected_results_format": "[Result] is [status] ([Rule ID])",
+        "rule_basis_format": "[Path] + [Rule ID] + [Version]",
+        "reference_verification_format": "Skill: [Skill ID]; Verify: [Verification]"
+      },
       "characteristics": {
-        "language_style": "quality",
-        "technical_terms": "medium",
-        "sentence_structure": "structured",
-        "gherkin_keywords": ["Given", "When", "Then", "And", "But"]
-      },
-      "structure": {
-        "feature_organization": "by_test_type",
-        "scenario_count": "5-8_per_feature",
-        "background_usage": "frequent",
-        "tag_conventions": ["@smoke", "@regression", "@critical"]
-      },
-      "examples": []
+        "focus": "quality_assurance",
+        "detail_level": "high",
+        "language_style": "formal",
+        "structure": "tabular",
+        "traceability": "high"
+      }
     },
-    "type-c-automation": {
-      "name": "Automation Tester Template",
-      "description": "Automation-focused BDD templates with CI/CD integration",
+    {
+      "template_id": "type-c-automation",
+      "name": "Type C (Automation Tester) - Automation-Focused Test Case Template",
+      "type": "automation_tester",
+      "patterns": {
+        "test_case_id_format": "TC-[module]-[number]",
+        "scenario_format": "Verify [system] [action] for [object]",
+        "automation_status_format": "[Status]",
+        "bdd_feature_id_format": "FT-[module]-[number]",
+        "preconditions_format": "[System] is [status]; [Resource] is available",
+        "test_steps_format": "Given [Condition]; When [Action]; And [Action]; Then [Result]",
+        "expected_results_format": "[Result] is [status] ([Rule ID])",
+        "rule_basis_format": "[Path] + [Rule ID] + [Version]",
+        "reference_verification_format": "Skill: [Skill ID]; Verify: [Verification]"
+      },
       "characteristics": {
+        "focus": "automation",
+        "detail_level": "high",
         "language_style": "technical",
-        "technical_terms": "high",
-        "sentence_structure": "precise",
-        "gherkin_keywords": ["Given", "When", "Then", "And", "But", "*"]
-      },
-      "structure": {
-        "feature_organization": "by_component",
-        "scenario_count": "8-12_per_feature",
-        "background_usage": "always",
-        "tag_conventions": ["@automated", "@api", "@ui", "@integration"]
-      },
-      "examples": []
+        "structure": "gherkin",
+        "traceability": "high"
+      }
     },
-    "type-d-general": {
-      "name": "General/Mixed Template",
-      "description": "Universal BDD templates with balanced coverage",
+    {
+      "template_id": "type-d-general",
+      "name": "Type D (Mixed/General) - Universal Test Case Template",
+      "type": "general",
+      "patterns": {
+        "test_case_id_format": "TC-[module]-[number]",
+        "scenario_format": "Verify [system] [action] for [object]",
+        "priority_format": "P[0-3] ([Level])",
+        "test_type_format": "[Type]",
+        "automation_status_format": "[Status]",
+        "bdd_feature_id_format": "FT-[module]-[number]",
+        "preconditions_format": "[System] is [status]; [Resource] is available",
+        "test_steps_format": "1. [Action]; 2. [Action]; 3. [Action]; 4. [Action]",
+        "expected_results_format": "[Result] is [status] ([Rule ID])",
+        "rule_basis_format": "[Path] + [Rule ID] + [Version]",
+        "reference_verification_format": "Skill: [Skill ID]; Verify: [Verification]"
+      },
       "characteristics": {
-        "language_style": "balanced",
-        "technical_terms": "medium",
-        "sentence_structure": "flexible",
-        "gherkin_keywords": ["Given", "When", "Then", "And"]
-      },
-      "structure": {
-        "feature_organization": "by_module",
-        "scenario_count": "4-6_per_feature",
-        "background_usage": "as_needed",
-        "tag_conventions": ["@general"]
-      },
-      "examples": []
+        "focus": "balanced",
+        "detail_level": "medium",
+        "language_style": "formal",
+        "structure": "tabular",
+        "traceability": "medium"
+      }
     }
-  },
-  "user_templates": [],
-  "learned_patterns": {
-    "structure_patterns": [],
-    "language_patterns": [],
-    "content_patterns": [],
-    "relationship_patterns": []
+  ],
+  "learning": {
+    "sources": [
+      "tests/bdd/templates/system/type-a-ba-template.feature",
+      "tests/bdd/templates/system/type-b-qa-template.feature",
+      "tests/bdd/templates/system/type-c-automation-template.feature",
+      "tests/bdd/templates/system/type-d-general-template.feature"
+    ],
+    "learned_patterns": 28,
+    "applied_patterns": 28
   }
 }
