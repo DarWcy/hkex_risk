@@ -19,14 +19,18 @@ governance/checker/
 │   ├── feedback-template-general.md           # General feedback template
 │   ├── checker-input-template.md            # Checker input template
 │   ├── checker-output-template.md           # Checker output template
-│   └── diff-analysis-template.md            # Difference analysis template
+│   ├── diff-analysis-template.md            # Difference analysis template
+│   └── exit-report-template.md              # Exit report template
 ├── outputs/          # Checker execution outputs
 │   └── output-template.md               # Output validation report template
 ├── analysis/         # Difference analysis reports
 │   └── analysis-template.md             # Analysis template
+├── exit-reports/     # Exit mechanism reports (created when needed)
+│   └── exit-report-[YYYYMMDD]-[SEQ].md
 └── config/           # Configuration files
     ├── confidence-level-config.md    # Confidence level assessment configuration
-    └── review-feedback-config.md    # Review and feedback configuration
+    ├── review-feedback-config.md    # Review and feedback configuration
+    └── exit-criteria-and-optimization.md # Exit criteria and optimization mechanism
 ```
 
 ## Components
@@ -392,8 +396,90 @@ The generator creates:
 
 For detailed instructions, see [generic-checker-prompt-generator-usage.md](file:///c:/Codes/hkex_risk/governance/checker/prompts/generic-checker-prompt-generator-usage.md).
 
+## Exit Criteria and Optimization Mechanism
+
+When confidence level requirements are not met after multiple iterations, the system includes a structured exit mechanism with optimization strategies.
+
+### Exit Criteria
+
+The system will trigger exit mechanism when any of these conditions are met:
+
+1. **Maximum Iteration Limit**: 3 rounds of marker-checker-review cycles
+2. **Confidence Level Below Threshold**: Below 3.0 (Medium) after maximum iterations
+3. **Stagnation Detection**: No improvement in confidence level for 2 consecutive iterations
+4. **Review Consensus Not Reached**: Reviewers cannot agree on action after escalation
+
+### Exit Mechanism Workflow
+
+**Phase 1: Exit Condition Assessment**
+- Check iteration count, confidence level, stagnation, and review consensus
+- Document evaluation results
+- Determine if exit criteria are met
+
+**Phase 2: Analysis Report Generation**
+- Compile all validation reports and human review feedback
+- Perform root cause analysis
+- Generate comprehensive exit report using [exit-report-template.md](file:///c:/Codes/hkex_risk/governance/checker/templates/exit-report-template.md)
+
+**Phase 3: Optimization Strategy Development**
+- Select appropriate optimization strategy based on root cause
+- Develop detailed optimization plan
+- Generate optimization proposal
+
+### Optimization Strategies
+
+**Strategy 1: Requirement Refinement**
+- Clarify ambiguous requirements
+- Add specific examples and edge cases
+- Validate enhanced requirements with stakeholders
+
+**Strategy 2: Prompt Engineering Improvement**
+- Analyze and refine marker prompts
+- Add specific examples and formatting requirements
+- Test refined prompts with sample inputs
+
+**Strategy 3: Model Enhancement**
+- Evaluate current model limitations
+- Research and select alternative models
+- Integrate new model and train team
+
+**Strategy 4: Hybrid Approach**
+- Combine multiple optimization strategies
+- Implement in phases
+- Test integrated approach
+
+**Strategy 5: Acceptance with Mitigation**
+- Assess risks of accepting current output
+- Develop mitigation strategies
+- Get stakeholder approval for acceptance
+
+### Configuration Files
+
+- **Exit Criteria Configuration**: `governance/checker/config/exit-criteria-and-optimization.md`
+- **Exit Report Template**: `governance/checker/templates/exit-report-template.md`
+
+### When to Use Exit Mechanism
+
+- When confidence level remains below threshold after 3 iterations
+- When no improvement is observed for 2 consecutive iterations
+- When reviewers cannot reach consensus on action
+- When fundamental limitations prevent further improvement
+
+### Implementation Steps
+
+1. **Detect Exit Condition**: Monitor iteration progress and confidence level trends
+2. **Generate Exit Report**: Use exit-report-template.md to document findings
+3. **Select Optimization Strategy**: Choose appropriate strategy based on root cause
+4. **Get Approval**: Obtain stakeholder approval for optimization plan
+5. **Implement Optimization**: Follow detailed implementation plan
+6. **Validate Results**: Run marker-checker cycle again to measure improvement
+
+For detailed information on exit criteria and optimization strategies, see [exit-criteria-and-optimization.md](file:///c:/Codes/hkex_risk/governance/checker/config/exit-criteria-and-optimization.md).
+
 ## Conclusion
 
 The LLM Checker System provides a robust framework for validating marker outputs, ensuring they meet the required standards and align with business rules. By following this guide, you can effectively use the checker to improve output quality while preserving valid content.
 
 For creating checker systems for new domains or projects, use the Generic Checker Prompt Generator to quickly establish validation processes tailored to your specific needs.
+
+When confidence level requirements are not met after multiple iterations, the exit mechanism provides structured optimization strategies to address root causes and improve overall system performance.
