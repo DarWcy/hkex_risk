@@ -247,73 +247,293 @@ This repository implements a complete **15-prompt lifecycle management system**:
 | **Version** | 1.4 |
 | **Release Date** | October 2025 |
 | **Source** | Hong Kong Securities Clearing Company Limited (HKSCC) |
-| **Knowledge Base Version** | 1.0.4 |
-| **Last Updated** | 2026-03-14 |
+| **Knowledge Base Version** | 1.0.6 |
+| **Last Updated** | 2025-03-14 |
 
 ### Version History
 
 | KB Version | Date | Changes | Updated By |
 |------------|------|---------|------------|
 | 1.0.0 | 2025-03-13 | Initial knowledge base framework creation | AI Assistant |
-| 1.0.1 | 2025-03-14 | Added LLM Checker System | AI Assistant |
-| 1.0.2 | 2025-03-14 | Optimized governance directory structure | AI Assistant |
-| 1.0.3 | 2025-03-14 | Added structured test cases | AI Assistant |
-| 1.0.4 | 2025-03-14 | Updated README with checker system documentation | AI Assistant |
+| 1.0.1 | 2025-03-13 | Migrated to 7-layer framework structure | AI Assistant |
+| 1.0.2 | 2025-03-13 | Added process file storage rules, updated directory structure | AI Assistant |
+| 1.0.3 | 2025-03-14 | Optimized Prompt 3-5 and 16 with unified standards and execution requirements | AI Assistant |
+| 1.0.4 | 2025-03-14 | Renamed Prompt 16 to Prompt 5 and renumbered all subsequent prompts for consistent numbering | AI Assistant |
+| 1.0.5 | 2025-03-14 | Fixed module naming and file locations, updated all affected documentation | AI Assistant |
+| 1.0.6 | 2025-03-14 | Added LLM Checker System, updated README with complete documentation | AI Assistant |
 
 ---
 
-## Quick Links
+## Manual Fallback Responsible Persons
 
-### Documentation
-- [Framework Configuration](config/FRAMEWORK-CONFIG.md)
-- [Rule Version](config/RULES-VERSION.md)
-- [Git Repository Framework](governance/process/git-repository-framework.md)
+### By Lifecycle Phase
 
-### AI Capabilities
-- [Skill Index](copilot-skills/skill-index.md)
-- [Skill Usage Guidelines](copilot-skills/usage-guidelines.md)
-- [Skill-BDD Relation](copilot-skills/skill-bdd-relation.md)
+| Phase | Primary Responsible | Audit Responsible | Escalation Contact |
+|-------|---------------------|-------------------|-------------------|
+| **Build** | BA Lead | QA Lead | Project Manager |
+| **Update** | BA Lead | QA Lead | Project Manager |
+| **Verify** | QA Lead | Automation Lead | QA Manager |
+| **Optimize** | Automation Lead | QA Lead | Project Manager |
+| **Archive** | QA Lead | BA Lead | Project Manager |
 
-### Test Assets
-- [Test Case Index](tests/test-cases/index.md)
-- [BDD Relation Manager](tests/bdd-relation-manager.md)
-- [Test Usage Guidelines](tests/usage-guidelines.md)
+### By Module
 
-### Quality Assurance
-- [Checker How-To Guide](governance/checker/CHECKER-HOW-TO.md)
-- [Checker Flowchart](governance/checker/CHECKER-FLOWCHART.md)
-- [Governance Overview](governance/README.md)
-
-### Prompts
-- [English Prompts](chat-prompt-en.md) (Source of Truth)
-- [Prompt 1 Universal Template](governance/templates/prompts/prompt1-universal-template.md)
-- [Checker Prompts](governance/checker/prompts/)
+| Module | BA Responsible | QA Responsible | Automation Responsible |
+|--------|---------------|----------------|----------------------|
+| Introduction-Overview | BA Lead | QA Lead | - |
+| Risk-Parameter-File-Specification | BA Support | QA Lead | Automation Lead |
+| Input-Data-Specification | BA Lead | QA Lead | Automation Lead |
+| Market-Risk-Component-Calculation | BA Lead | QA Lead | Automation Lead |
+| Margin-Adjustment-Process | BA Lead | QA Support | - |
+| Other-Risk-Components | BA Support | QA Lead | Automation Support |
+| Position-Processing-Logic | BA Support | QA Lead | Automation Lead |
+| Collateral-Management | BA Support | QA Lead | Automation Lead |
+| Corporate-Action-Processing | BA Support | QA Lead | Automation Lead |
+| Calculation-Examples | BA Support | QA Lead | Automation Lead |
 
 ---
 
-## Getting Started
+## Skill Reference / Script Usage Guidelines
 
-1. **Understand the Framework**: Read [GIT-REPOSITORY-FRAMEWORK.md](governance/process/git-repository-framework.md)
-2. **Review Business Rules**: Explore `docs/` directory
-3. **Understand AI Capabilities**: Review `copilot-skills/` directory
-4. **Check Test Assets**: Review `tests/` directory
-5. **Learn Quality Assurance**: Study `governance/checker/` documentation
-6. **Execute Prompts**: Follow the sequence in [chat-prompt-en.md](chat-prompt-en.md)
+### For Business Analysts (BA)
+
+1. **Accessing Skills**
+   - Navigate to `copilot-skills/skill-index.md` for skill inventory
+   - Use skill trigger words in GitHub Copilot chat
+   - Reference `copilot-skills/usage-guidelines.md` for detailed instructions
+
+2. **Reference Management**
+   - When rules update, verify `Rule_Source` in skills reflects new version
+   - Report Reference inconsistencies to QA Lead
+   - Review `copilot-skills/skill-bdd-relation.md` for relationship status
+
+3. **Manual Fallback**
+   - If Skill provides incorrect information, use `governance/process/manual-fallback.md`
+   - Document issues in `governance/process/audit-trail.md`
+   - Follow escalation path defined above
+
+4. **Checker System Usage**
+   - Review checker outputs for Prompt 6 and 7
+   - Validate that test cases align with business rules
+   - Approve or reject checker recommendations
+
+### For QA Leads
+
+1. **Skill Verification**
+   - Run multi-model verification using `config/skill-verify-config.md`
+   - Check Reference integrity in `copilot-skills/skill-bdd-relation.md`
+   - Review verification results in `governance/`
+
+2. **Relationship Management**
+   - Maintain `copilot-skills/skill-bdd-relation.md` and `tests/bdd-relation-manager.md`
+   - Ensure bidirectional consistency between Skills and BDD
+   - Update relationship tables after any changes
+
+3. **Audit Responsibilities**
+   - Sign off on PRs affecting Skills or References
+   - Review manual fallback decisions
+   - Approve version tags
+
+4. **Checker System Management**
+   - Configure confidence level thresholds in `governance/checker/config/`
+   - Review Initial/Peer/Final review feedback
+   - Approve checker optimization suggestions
+
+### For Automation Testers
+
+1. **Script Execution**
+   - Scripts are located in `copilot-skills/scripts/`
+   - Run Reference sync scripts after rule updates
+   - Check `governance/process/manual-fallback.md` on failure
+
+2. **BDD Development**
+   - Create feature files in `tests/bdd/features/`
+   - Implement steps in `tests/bdd/steps/`
+   - Update `tests/bdd-relation-manager.md` with new relationships
+
+3. **Test Execution**
+   - Use `behave.ini` configuration for test runs
+   - Enable Reference verification switch when testing
+   - Report discrepancies to QA Lead
+
+4. **Checker System Integration**
+   - Review checker validation reports for BDD scenarios
+   - Implement suggested optimizations for failed checks
+   - Ensure all BDD scenarios pass checker validation before submission
+
+---
+
+## Quick Start
+
+### For New Team Members
+
+1. **Read Core Documents**
+   - `docs/Introduction-Overview.md` - Understand the domain
+   - `docs/global-process/GLOBAL-PROCESS.md` - Learn the business process
+   - `governance/process/git-repository-framework.md` - Understand the structure
+   - `HOW-TO-EXECUTE-PROMPTS.md` - Learn prompt execution sequence
+
+2. **Set Up Environment**
+   - Clone this repository
+   - Install Python dependencies for BDD: `pip install behave`
+   - Configure GitHub Copilot with skills from `copilot-skills/`
+
+3. **Explore Examples**
+   - Review `docs/Calculation-Examples.md` for calculation samples
+   - Check `docs/Input-Data-Specification.md` for core calculations
+   - Examine `docs/Risk-Parameter-File-Specification.md` for data requirements
+   - Review `tests/test-cases/TC-IM-CALC-001.md` for test case format
+
+4. **Understand Quality Assurance**
+   - Read `governance/checker/CHECKER-HOW-TO.md` for validation process
+   - Review `PROMPT-WORKFLOW-FLOWCHART.md` for complete workflow
+   - Check confidence level configuration
+
+### For Rule Updates
+
+1. **Update Documents**
+   - Modify relevant files in `docs/`
+   - Update version in `config/RULES-VERSION.md`
+   - Log changes in `governance/process/change-history.md`
+
+2. **Sync Skills**
+   - Update affected skills in `copilot-skills/skill-definitions/`
+   - Run Reference sync scripts
+   - Update `copilot-skills/skill-bdd-relation.md`
+
+3. **Update Tests**
+   - Modify test cases in `tests/test-cases/`
+   - Update BDD scenarios in `tests/bdd/`
+   - Sync `tests/bdd-relation-manager.md`
+
+4. **Verification**
+   - Run multi-model verification
+   - Execute Checker System for Prompt 6 and 7 outputs
+   - Complete checklist from `governance/`
+   - Obtain sign-offs
+
+---
+
+## Migration Notes
+
+This project was migrated to a 7-layer framework structure on 2025-03-13. The migration involved:
+
+1. **Created New Directories:**
+   - `docs/` - Moved all rule documents here
+   - `docs/source-files/` - Moved source PDF here
+   - `copilot-skills/` - Created for AI capabilities
+   - `copilot-skills/scripts/` - Created for automation scripts
+   - `tests/` - Created for test assets
+   - `tests/test-cases/` - Created for structured test cases
+   - `tests/bdd/` - Created for BDD scenarios
+   - `governance/` - Created for governance and quality assurance
+   - `governance/checker/` - Created for LLM Checker System
+   - `governance/analysis/` - Created for analysis documents
+   - `governance/reviews/` - Created for review system
+   - `governance/validation/` - Created for validation tools
+   - `governance/process/` - Created for process documentation
+
+2. **Moved Existing Files:**
+   - Rule documents moved to `docs/`
+   - Process flowchart moved to `docs/global-process/`
+   - Source PDF moved to `docs/source-files/`
+   - `GIT-REPOSITORY-FRAMEWORK.md` moved to `governance/process/`
+   - `PROMPT1-Universal-Template.md` moved to `governance/templates/prompts/`
+
+3. **Created New Files:**
+   - `config/FRAMEWORK-CONFIG.md` - Framework configuration
+   - `governance/process/manual-fallback.md` - Manual fallback procedures
+   - `governance/process/audit-trail.md` - Audit trail
+   - `governance/checker/CHECKER-HOW-TO.md` - Checker system guide
+   - `governance/checker/CHECKER-FLOWCHART.md` - Checker process flowchart
+   - `HOW-TO-EXECUTE-PROMPTS.md` - Complete prompt execution guide
+   - `PROMPT-WORKFLOW-FLOWCHART.md` - Complete workflow visualization
+
+### Process File Storage Rules Update (2025-03-13)
+
+Established standardized storage rules for all prompt process files:
+
+1. **Process File Locations:**
+   - `PROMPT1-OUTPUT.md` → `docs/source-files/`
+   - `PROMPT2-OUTPUT.md` → `config/`
+   - `PROMPT3-OUTPUT.md` → `copilot-skills/`
+   - `PROMPT4-OUTPUT.md` → `tests/`
+   - `PROMPT5+ OUTPUT.md` → `governance/analysis/outputs/`
+
+2. **Complete Document Files:**
+   - `Initial Margin Calculation Guide HKv14.md` moved to `docs/source-files/`
+   - Paired with original PDF for source traceability
+
+3. **Framework Documentation:**
+   - `governance/process/git-repository-framework.md` - Framework structure
+   - `governance/templates/prompts/prompt1-universal-template.md` - Prompt 1 template
+
+4. **Naming Convention:**
+   - All process files follow `PROMPT{X}-{DESCRIPTION}.md` pattern
+   - All filenames use UPPERCASE for PROMPT prefix
+
+5. **Prompt Numbering Update:**
+   - **Prompt 16** → **Prompt 5** (Skill Automation Script Generation)
+   - **PROMPT16-OUTPUT.md** → **PROMPT5-OUTPUT.md`
+   - **All subsequent Prompts** renumbered to maintain sequential order
+
+For detailed migration information, see `config/PROMPT2-OUTPUT.md`.
+
+---
+
+## Key Contacts
+
+| Role | Name | Responsibility |
+|------|------|---------------|
+| Knowledge Base Owner | TBD | Overall repository management |
+| BA Lead | TBD | Business rule accuracy |
+| QA Lead | TBD | Quality assurance and verification |
+| Automation Lead | TBD | Test automation and scripts |
+| Git Admin | TBD | Repository access and permissions |
 
 ---
 
 ## Contributing
 
-When contributing to this repository:
+1. **Before Making Changes**
+   - Review `governance/process/git-repository-framework.md` for structure guidelines
+   - Check `HOW-TO-EXECUTE-PROMPTS.md` for prompt execution sequence
+   - Understand manual fallback procedures in `governance/process/manual-fallback.md`
+   - Review checker system requirements in `governance/checker/CHECKER-HOW-TO.md`
 
-1. Follow the [Naming Conventions](config/NAMING-CONVENTIONS.md) (to be created)
-2. Maintain [Reference Integrity](config/skill-reference-spec.md)
-3. Use the [LLM Checker System](governance/checker/CHECKER-HOW-TO.md) for validation
-4. Update relevant documentation
-5. Follow the [Governance Procedures](governance/README.md)
+2. **Making Changes**
+   - Create feature branch: `git checkout -b feature/description`
+   - Follow incremental update principles
+   - Maintain Reference integrity
+   - Run checker validation for Prompt 6 and 7 outputs
+
+3. **Submitting Changes**
+   - Complete relevant checklist from `governance/`
+   - Run verification scripts
+   - Execute checker system validation
+   - Create PR with clear description
+   - Obtain required approvals
 
 ---
 
-## License
+## License & Confidentiality
 
-This knowledge base is for internal use only. All business rules are derived from the Initial Margin Calculation Guide HKv14 published by HKSCC.
+This knowledge base contains proprietary business rules from HKSCC. Access is restricted to authorized personnel only. Do not distribute outside the organization.
+
+---
+
+## Support
+
+For questions or issues:
+1. Check relevant README files in each directory
+2. Review `governance/process/git-repository-framework.md` for structure questions
+3. Consult `governance/process/manual-fallback.md` for fallback procedures
+4. Read `governance/checker/CHECKER-HOW-TO.md` for checker system questions
+5. Review `HOW-TO-EXECUTE-PROMPTS.md` for prompt execution guidance
+6. Escalate to responsible person per table above
+
+---
+
+**Last Updated**: 2025-03-14  
+**Knowledge Base Version**: 1.0.6  
+**Status**: Active Development
