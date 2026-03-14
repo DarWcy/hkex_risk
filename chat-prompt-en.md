@@ -1,6 +1,6 @@
 ---
 
-## Global Rules for Prompt Management (Updated)
+## Global Rules for Prompt Management
 
 ### Rule 1: Prompt Set Integrity
 - **No Prompt Loss**: When updating this file, **no prompts shall be deleted or removed** without explicit approval.
@@ -2734,13 +2734,6 @@ project-root/
   - Fixed PowerShell script path resolution and regex matching issues
 - **Impact**: Ensures prompt integrity and prevents prompt loss during updates
 - **Validation**: Tested validator script, confirmed all 15 prompts are present and properly formatted
-
-### Update 2026-03-14 - Test Auto-Commit System
-- **Date**: 2026-03-14
-- **Author**: System Administrator
-- **Description**: Testing auto-commit system with a minor update to verify the validation and commit workflow
-- **Impact**: Validates the complete update workflow including validation and auto-commit
-- **Validation**: PowerShell script successfully validates and commits changes
 
 ### Update 2024-01-01 - Restore Missing Prompts 10-15
 - **Date**: 2024-01-01
