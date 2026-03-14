@@ -1490,6 +1490,17 @@ Based on the current [Initial Margin Calculation Guide HKv14] Git structured kno
 4. Reference/Script synchronization: New documents need to update Copilot Skill Reference and Script, generate **Reference/Script synchronization requirements**.
 5. Incremental update templates: Provide incremental update templates for relationship/Reference/Script files, ready for direct filling and use.
 
+6. **Human Review and Feedback System**: Implement a structured review process for incremental update processes:
+   - **Review Workflow**: Define a multi-stage review process (Initial → Peer Review → Final Approval)
+   - **Feedback Collection**: Collect structured feedback on update process quality, synchronization accuracy, and completeness
+   - **Confidence Level Calculation**: Calculate confidence level based on review feedback and update process quality
+   - **Failure Analysis**: Provide detailed analysis of why update processes fail or don't meet requirements
+   - **Feedback Templates**: Provide standardized feedback templates for different review scenarios
+   - **Review Output Files**:
+     - `governance/reviews/prompt8-review.md` - Review results and feedback
+     - `governance/reviews/prompt8-confidence.md` - Confidence level assessment
+     - `governance/reviews/prompt8-failure-analysis.md` - Failure analysis report
+
 ### Input (Replace with new document content)
 New Document Content: [Paste new business document content]
 Existing Knowledge Base Structure: [Paste existing MD file list + Skill list + test case list + BDD list]
@@ -1521,6 +1532,17 @@ Based on the current [Initial Margin Calculation Guide HKv14] Git structured kno
 3. Rule update impact scope: Identify all potentially affected MD rules/Copilot Skills/test cases/BDD and Reference/Script, generate **Rule Update Impact Scope List**.
 4. Reference/Script update: Update Copilot Skill Reference and Script based on rule changes, generate **Reference/Script update requirements**.
 5. Rollback and version control: Provide rollback plans and Git version tagging requirements.
+
+6. **Human Review and Feedback System**: Implement a structured review process for synchronization update processes:
+   - **Review Workflow**: Define a multi-stage review process (Initial → Peer Review → Final Approval)
+   - **Feedback Collection**: Collect structured feedback on update process quality, synchronization accuracy, and completeness
+   - **Confidence Level Calculation**: Calculate confidence level based on review feedback and update process quality
+   - **Failure Analysis**: Provide detailed analysis of why update processes fail or don't meet requirements
+   - **Feedback Templates**: Provide standardized feedback templates for different review scenarios
+   - **Review Output Files**:
+     - `governance/reviews/prompt9-review.md` - Review results and feedback
+     - `governance/reviews/prompt9-confidence.md` - Confidence level assessment
+     - `governance/reviews/prompt9-failure-analysis.md` - Failure analysis report
 
 ### Input (Replace with updated document content)
 Updated Document Content: [Paste updated business document content]
