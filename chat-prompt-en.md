@@ -2368,11 +2368,6 @@ copilot-skills/
     └── scripts/
 ```
 
-### README.md Synchronization Rule
-**CRITICAL**: When any prompt execution affects directory structure, file locations, or naming conventions, the `README.md` file MUST be synchronized to reflect these changes.
-
-**Trigger Conditions for README.md Update:**
-
 ---
 
 ## VI. Example Outputs
@@ -2577,15 +2572,6 @@ copilot-skills/
 - Test scripts with actual Skill files
 - Execute Prompt 6 to generate test cases
 ```
-
-### README.md Synchronization Rule
-**CRITICAL**: When any prompt execution affects directory structure, file locations, or naming conventions, the `README.md` file MUST be synchronized to reflect these changes.
-
-**Trigger Conditions for README.md Update:**
-- New directories are created
-- Existing directories are renamed or moved
-- File naming conventions change
-- Process file storage locations change
 
 ---
 
@@ -2798,7 +2784,7 @@ Prompt 1 → Prompt 2 → Prompt 3 → Prompt 4 → Prompt 5 → Prompt 6 → Pr
 
 ---
 
-## VI. Appendix
+## VIII. Appendix
 
 ### A. Naming Conventions Summary
 
