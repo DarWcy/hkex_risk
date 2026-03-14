@@ -1,0 +1,81 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-03-14T13:05:00Z",
+  "template_profiles": {
+    "type-a-ba": {
+      "name": "Business Analyst Template",
+      "description": "Business-focused BDD templates with business rule verification",
+      "characteristics": {
+        "language_style": "business",
+        "technical_terms": "low",
+        "sentence_structure": "simple",
+        "gherkin_keywords": ["Given", "When", "Then", "And"]
+      },
+      "structure": {
+        "feature_organization": "by_business_process",
+        "scenario_count": "3-5_per_feature",
+        "background_usage": "optional",
+        "tag_conventions": ["@business", "@rule"]
+      },
+      "examples": []
+    },
+    "type-b-qa-lead": {
+      "name": "QA Lead Template",
+      "description": "Quality-focused BDD templates with test case integration",
+      "characteristics": {
+        "language_style": "quality",
+        "technical_terms": "medium",
+        "sentence_structure": "structured",
+        "gherkin_keywords": ["Given", "When", "Then", "And", "But"]
+      },
+      "structure": {
+        "feature_organization": "by_test_type",
+        "scenario_count": "5-8_per_feature",
+        "background_usage": "frequent",
+        "tag_conventions": ["@smoke", "@regression", "@critical"]
+      },
+      "examples": []
+    },
+    "type-c-automation": {
+      "name": "Automation Tester Template",
+      "description": "Automation-focused BDD templates with CI/CD integration",
+      "characteristics": {
+        "language_style": "technical",
+        "technical_terms": "high",
+        "sentence_structure": "precise",
+        "gherkin_keywords": ["Given", "When", "Then", "And", "But", "*"]
+      },
+      "structure": {
+        "feature_organization": "by_component",
+        "scenario_count": "8-12_per_feature",
+        "background_usage": "always",
+        "tag_conventions": ["@automated", "@api", "@ui", "@integration"]
+      },
+      "examples": []
+    },
+    "type-d-general": {
+      "name": "General/Mixed Template",
+      "description": "Universal BDD templates with balanced coverage",
+      "characteristics": {
+        "language_style": "balanced",
+        "technical_terms": "medium",
+        "sentence_structure": "flexible",
+        "gherkin_keywords": ["Given", "When", "Then", "And"]
+      },
+      "structure": {
+        "feature_organization": "by_module",
+        "scenario_count": "4-6_per_feature",
+        "background_usage": "as_needed",
+        "tag_conventions": ["@general"]
+      },
+      "examples": []
+    }
+  },
+  "user_templates": [],
+  "learned_patterns": {
+    "structure_patterns": [],
+    "language_patterns": [],
+    "content_patterns": [],
+    "relationship_patterns": []
+  }
+}
