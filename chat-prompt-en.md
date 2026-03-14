@@ -1698,6 +1698,16 @@ Skill Definitions: [Paste Skill definition content]
   - **Type B (QA Lead)**: Quality-focused validation templates with test case management
   - **Type C (Automation Tester)**: Automation-focused validation templates with CI/CD integration
   - **Type D (Mixed/General)**: Universal validation templates with balanced coverage
+- **Human Review and Feedback System**: Implement a structured review process for skill validation and quality assurance:
+  - **Review Workflow**: Define a multi-stage review process (Initial → Peer Review → Final Approval)
+  - **Feedback Collection**: Collect structured feedback on validation quality, assurance processes, and governance effectiveness
+  - **Confidence Level Calculation**: Calculate confidence level based on review feedback and validation quality
+  - **Failure Analysis**: Provide detailed analysis of why validation processes fail or don't meet requirements
+  - **Feedback Templates**: Provide standardized feedback templates for different review scenarios
+  - **Review Output Files**:
+    - `governance/reviews/prompt12-review.md` - Review results and feedback
+    - `governance/reviews/prompt12-confidence.md` - Confidence level assessment
+    - `governance/reviews/prompt12-failure-analysis.md` - Failure analysis report
 ```
 
 ### Prompt 13 (Performance Monitoring and Optimization + Resource Management)
@@ -1736,6 +1746,16 @@ Performance Data: [Paste performance metrics data]
   - **Type B (QA Lead)**: Quality-focused performance templates with quality metrics
   - **Type C (Automation Tester)**: Automation-focused performance templates with CI/CD integration
   - **Type D (Mixed/General)**: Universal performance templates with balanced coverage
+- **Human Review and Feedback System**: Implement a structured review process for performance monitoring and optimization:
+  - **Review Workflow**: Define a multi-stage review process (Initial → Peer Review → Final Approval)
+  - **Feedback Collection**: Collect structured feedback on monitoring effectiveness, optimization strategies, and resource management plans
+  - **Confidence Level Calculation**: Calculate confidence level based on review feedback and performance metrics
+  - **Failure Analysis**: Provide detailed analysis of why performance optimization fails or doesn't meet requirements
+  - **Feedback Templates**: Provide standardized feedback templates for different review scenarios
+  - **Review Output Files**:
+    - `governance/reviews/prompt13-review.md` - Review results and feedback
+    - `governance/reviews/prompt13-confidence.md` - Confidence level assessment
+    - `governance/reviews/prompt13-failure-analysis.md` - Failure analysis report
 ```
 
 ### Prompt 14 (Documentation Generation and Publishing + Knowledge Base Maintenance)
