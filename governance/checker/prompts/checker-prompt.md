@@ -1,7 +1,7 @@
 # LLM Checker System Prompts
 
 ## Overview
-This document contains the prompts for the LLM Checker System, which is designed to validate the outputs of the Marker LLM (Prompt 6 and 7) against the original business rules and requirements.
+This document contains the prompts for the LLM Checker System, which is designed to validate the outputs of the Marker LLM (Prompt 6 and 7) against the original business rules and requirements. The system supports multiple LLM calls to independently validate the same marker output for enhanced quality assurance.
 
 ## Template References
 
@@ -105,11 +105,17 @@ You are an expert QA validation assistant. Your task is to validate the test cas
    - Ensure suggestions don't negatively affect passed outputs
 
 6. **Output Requirements**:
-   - Generate a structured validation report
-   - Include confidence level assessment for each test case
-   - Provide detailed difference analysis
-   - Include optimization suggestions
-   - Maintain a preservation section for passed content
+   - **Language Requirement**: All output must be in English only
+   - **Report Template**: Use `governance/checker/outputs/output-template.md` as the template
+   - **Report Naming**: Generate report file with name format: `prompt6-checker-output-[YYYYMMDD].md`
+   - **Report Storage**: Store the report in `governance/checker/outputs/` directory
+   - **Dynamic Model Detection**: Automatically detect and record the actual LLM model name from the current execution context. Use the actual model name (e.g., "DS3.1") in the report, not a placeholder.
+   - **Multiple Validation Support**: If checker is executed multiple times (with same or different models), record each execution as a separate validation run with its own model name, timestamp, and results. For each run, use the actual model name in the report.
+   - **Generate a structured validation report**
+   - **Include confidence level assessment for each test case**
+   - **Provide detailed difference analysis**
+   - **Include optimization suggestions**
+   - **Maintain a preservation section for passed content**
 
 ### Input
 - **Original MD Files**: [List of MD files with structured paragraph IDs]
@@ -178,11 +184,17 @@ You are an expert BDD validation assistant. Your task is to validate the BDD sce
    - Recommend improvements to enhance traceability and maintainability
 
 6. **Output Requirements**:
-   - Generate a structured validation report
-   - Include confidence level assessment for each BDD scenario
-   - Provide detailed difference analysis
-   - Include optimization suggestions
-   - Maintain a preservation section for passed content
+   - **Language Requirement**: All output must be in English only
+   - **Report Template**: Use `governance/checker/outputs/output-template.md` as the template
+   - **Report Naming**: Generate report file with name format: `prompt7-checker-output-[YYYYMMDD].md`
+   - **Report Storage**: Store the report in `governance/checker/outputs/` directory
+   - **Dynamic Model Detection**: Automatically detect and record the actual LLM model name from the current execution context. Use the actual model name (e.g., "DS3.1") in the report, not a placeholder.
+   - **Multiple Validation Support**: If checker is executed multiple times (with same or different models), record each execution as a separate validation run with its own model name, timestamp, and results. For each run, use the actual model name in the report.
+   - **Generate a structured validation report**
+   - **Include confidence level assessment for each BDD scenario**
+   - **Provide detailed difference analysis**
+   - **Include optimization suggestions**
+   - **Maintain a preservation section for passed content**
 
 ### Input
 - **Original MD Files**: [List of MD files with structured paragraph IDs]

@@ -5,7 +5,8 @@
 ### 1.1 Report Information
 - **Report ID**: CHECKER-OUTPUT-[YYYYMMDD]-[SEQ]
 - **Validation Date**: YYYY-MM-DD
-- **Checker LLM**: [Model Name/Version]
+- **Total Validation Runs**: [Total number of validation runs]
+- **Validation Model(s)**: {{ACTUAL_LLM_MODEL_NAME}} (e.g., "DS3.1")
 - **Marker Output**: [Prompt 6/7 Output File]
 - **Original MD Files**: [List of MD files]
 
@@ -136,37 +137,57 @@
 ### 9.3 Testing Plan
 - [Testing steps to verify changes]
 
-## 10. Conclusion
+## 10. Validation Runs Analysis
 
-### 10.1 Summary
+### 10.1 Validation Run Results
+| Run ID | LLM Model | Run Time | Overall Confidence | Passed Items | Failed Items | Warning Items |
+|--------|-----------|----------|-------------------|-------------|-------------|---------------|
+| 1 | {{ACTUAL_LLM_MODEL_NAME}} | YYYY-MM-DD HH:MM:SS | [1-5] | [Number] | [Number] | [Number] |
+| 2 | {{ACTUAL_LLM_MODEL_NAME}} | YYYY-MM-DD HH:MM:SS | [1-5] | [Number] | [Number] | [Number] |
+| 3 | {{ACTUAL_LLM_MODEL_NAME}} | YYYY-MM-DD HH:MM:SS | [1-5] | [Number] | [Number] | [Number] |
+
+### 10.2 Model Performance Comparison
+| LLM Model | Average Confidence | Success Rate | Consistency Score |
+|-----------|-------------------|-------------|-------------------|
+| {{ACTUAL_LLM_MODEL_NAME}} | [1-5] | [Percentage] | [0-1] |
+
+### 10.3 Consensus Analysis
+- **Consensus Level**: [High/Medium/Low]
+- **Agreement Points**: [List of points where validation runs agreed]
+- **Disagreement Points**: [List of points where validation runs disagreed]
+- **Resolved Issues**: [Issues resolved through multiple validation runs]
+
+## 11. Conclusion
+
+### 11.1 Summary
 - **Validation Outcome**: [Summary of results]
 - **Key Findings**: [Main issues and strengths]
 - **Confidence Assessment**: [Overall confidence level and rationale]
 
-### 10.2 Next Steps
+### 11.2 Next Steps
 - **Immediate Actions**: [Priority items]
 - **Follow-up Activities**: [Subsequent steps]
 - **Continuous Improvement**: [Process improvement suggestions]
 
-## 11. Appendices
+## 12. Appendices
 
-### 11.1 Validation Criteria
+### 12.1 Validation Criteria
 - **Structure**: Complete mandatory fields, correct formatting, logical organization
 - **Content**: Rule alignment, scenario coverage, parameter validity, global process nodes
 - **Reference**: Valid rule basis, skill references, test references, relationships
 
-### 11.2 Severity Levels
+### 12.2 Severity Levels
 - **Critical**: Breaks functionality, requires immediate fix
 - **High**: Significant issue, should be fixed before deployment
 - **Medium**: Moderate issue, should be addressed in next iteration
 - **Low**: Minor issue, can be addressed in future updates
 
-### 11.3 Confidence Level Definitions
+### 12.3 Confidence Level Definitions
 - **5**: Excellent - No issues, fully aligned with requirements
 - **4**: Good - Minor issues, mostly aligned with requirements
 - **3**: Medium - Some issues, partially aligned with requirements
 - **2**: Poor - Significant issues, minimally aligned with requirements
 - **1**: Very Poor - Major issues, not aligned with requirements
 
-### 11.4 Supporting Evidence
+### 12.4 Supporting Evidence
 - [Attach relevant screenshots, code snippets, or references]

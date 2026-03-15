@@ -76,8 +76,8 @@ The checker prompt includes:
 ### Step 1: Prepare Input Files
 
 1. **Marker Output Files**:
-   - `governance/PROMPT6-OUTPUT.md` (test cases)
-   - `governance/PROMPT7-OUTPUT.md` (BDD scenarios)
+   - `governance/analysis/outputs/PROMPT6-OUTPUT.md` (test cases)
+   - `governance/analysis/outputs/PROMPT7-OUTPUT.md` (BDD scenarios)
 
 2. **Original Rules**:
    - Relevant MD files from `docs/source-files/`
@@ -88,7 +88,12 @@ The checker prompt includes:
 4. **Input Templates**:
    - Use `governance/checker/templates/checker-input-template.md` to prepare structured input
 
-5. **Configuration**:
+5. **LLM Validators**:
+   - System will automatically detect and record the actual LLM model used for validation
+   - Support for multiple validation runs with the same or different models
+   - Each validation run will be recorded separately in the report
+
+6. **Configuration**:
    - `governance/checker/config/confidence-level-config.md` - Confidence level settings
    - `governance/checker/config/review-feedback-config.md` - Review process configuration
 
@@ -96,10 +101,14 @@ The checker prompt includes:
 
 1. **Load Input Files**
 2. **Select Prompt Variant**: Choose the appropriate prompt for Prompt 6 or 7 validation
-3. **Run Checker LLM** with the prepared prompt
-4. **Generate Validation Reports**: Use `output-template.md` for structured output
-5. **Analyze Differences**: Use `analysis-template.md` for detailed analysis
-6. **Provide Optimization Suggestions**: Include preservation of passed content
+3. **Configure LLM Validators**: Set up multiple LLM models for independent validation
+4. **Run Checker LLMs**:
+   - Execute each LLM validator with the same prepared prompt
+   - Collect validation results from each LLM
+5. **Generate Individual Validation Reports**: Use `output-template.md` for each LLM's output
+6. **Generate Composite Validation Report**: Create a combined report with multi-LLM comparison
+7. **Analyze Differences**: Use `analysis-template.md` for detailed analysis
+8. **Provide Optimization Suggestions**: Include preservation of passed content
 
 ### Step 3: Review Results
 
@@ -120,7 +129,7 @@ The checker system includes a structured three-stage human review process to ens
 1. Review checker validation results
 2. Assess accuracy of identified differences
 3. Evaluate quality of optimization suggestions
-4. Provide initial feedback using [feedback-template-initial-review.md](file:///c:/Codes/hkex_risk/governance/checker/templates/feedback-template-initial-review.md)
+4. Provide initial feedback using [feedback-template-initial-review.md](templates/feedback-template-initial-review.md)
 
 **Output**: Initial review report with feedback
 
@@ -132,7 +141,7 @@ The checker system includes a structured three-stage human review process to ens
 1. Review initial review findings
 2. Validate feedback accuracy
 3. Assess impact of proposed changes
-4. Provide peer review comments using [feedback-template-peer-review.md](file:///c:/Codes/hkex_risk/governance/checker/templates/feedback-template-peer-review.md)
+4. Provide peer review comments using [feedback-template-peer-review.md](templates/feedback-template-peer-review.md)
 
 **Output**: Peer review report with additional insights
 
@@ -144,7 +153,7 @@ The checker system includes a structured three-stage human review process to ens
 1. Review all previous feedback
 2. Assess overall impact and risk
 3. Approve or reject proposed changes
-4. Document approval decision using [feedback-template-final-approval.md](file:///c:/Codes/hkex_risk/governance/checker/templates/feedback-template-final-approval.md)
+4. Document approval decision using [feedback-template-final-approval.md](templates/feedback-template-final-approval.md)
 
 **Output**: Final approval decision with implementation authorization
 
@@ -165,7 +174,7 @@ The checker system includes a structured three-stage human review process to ens
 
 ### Review Process Configuration
 
-The review process is configured in [review-feedback-config.md](file:///c:/Codes/hkex_risk/governance/checker/config/review-feedback-config.md) and includes:
+The review process is configured in [review-feedback-config.md](config/review-feedback-config.md) and includes:
 
 - **Three-Stage Review**: Initial → Peer Review → Final Approval
 - **Review Criteria**: Accuracy, quality, completeness, and impact assessment
@@ -214,7 +223,7 @@ The review process is configured in [review-feedback-config.md](file:///c:/Codes
 ### 1. Validate Prompt 6 Output (Test Cases)
 
 1. **Prepare Input**:
-   - Marker Output: `governance/PROMPT6-OUTPUT.md`
+   - Marker Output: `governance/analysis/outputs/PROMPT6-OUTPUT.md`
    - Original MD Files: Relevant files from `docs/source-files/`
    - Checker Prompt: Use Prompt 6 Validator from `governance/checker/prompts/checker-prompt.md`
 
@@ -236,8 +245,8 @@ The review process is configured in [review-feedback-config.md](file:///c:/Codes
 ### 2. Validate Prompt 7 Output (BDD Scenarios)
 
 1. **Prepare Input**:
-   - Marker Output: `governance/PROMPT7-OUTPUT.md`
-   - Test Cases: `governance/PROMPT6-OUTPUT.md` (for alignment check)
+   - Marker Output: `governance/analysis/outputs/PROMPT7-OUTPUT.md`
+   - Test Cases: `governance/analysis/outputs/PROMPT6-OUTPUT.md` (for alignment check)
    - Original MD Files: Relevant files from `docs/source-files/`
    - Checker Prompt: Use Prompt 7 Validator from `governance/checker/prompts/checker-prompt.md`
 
@@ -394,7 +403,7 @@ The generator creates:
 - **How-To Guide**: Usage documentation
 - **Feedback Templates**: Review process templates
 
-For detailed instructions, see [generic-checker-prompt-generator-usage.md](file:///c:/Codes/hkex_risk/governance/checker/prompts/generic-checker-prompt-generator-usage.md).
+For detailed instructions, see [generic-checker-prompt-generator-usage.md](prompts/generic-checker-prompt-generator-usage.md).
 
 ## Exit Criteria and Optimization Mechanism
 
@@ -419,7 +428,7 @@ The system will trigger exit mechanism when any of these conditions are met:
 **Phase 2: Analysis Report Generation**
 - Compile all validation reports and human review feedback
 - Perform root cause analysis
-- Generate comprehensive exit report using [exit-report-template.md](file:///c:/Codes/hkex_risk/governance/checker/templates/exit-report-template.md)
+- Generate comprehensive exit report using [exit-report-template.md](templates/exit-report-template.md)
 
 **Phase 3: Optimization Strategy Development**
 - Select appropriate optimization strategy based on root cause
@@ -474,7 +483,7 @@ The system will trigger exit mechanism when any of these conditions are met:
 5. **Implement Optimization**: Follow detailed implementation plan
 6. **Validate Results**: Run marker-checker cycle again to measure improvement
 
-For detailed information on exit criteria and optimization strategies, see [exit-criteria-and-optimization.md](file:///c:/Codes/hkex_risk/governance/checker/config/exit-criteria-and-optimization.md).
+For detailed information on exit criteria and optimization strategies, see [exit-criteria-and-optimization.md](config/exit-criteria-and-optimization.md).
 
 ## Conclusion
 
