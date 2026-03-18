@@ -1,6 +1,6 @@
 # Initial Margin Calculation Knowledge Base
 
-**Version**: 2.1.0
+**Version**: 2.2.0
 **Last Updated**: 2026-03-18
 **Author**: System Administrator
 
@@ -8,9 +8,10 @@
 
 This Git repository serves as a **traceable, verifiable, updatable, and scalable** test business knowledge common baseline for the Initial Margin Calculation Guide HKv14. It supports full lifecycle management of business rules, AI-assisted capabilities (GitHub Copilot Skills), test assets (BDD scenarios), and comprehensive quality assurance through LLM Checker System.
 
-### Enhanced Features (Version 2.1.0)
+### Enhanced Features (Version 2.2.0)
 
 This version includes significant enhancements:
+- **Generic Template Support**: Made prompts document-agnostic with [BUSINESS_DOCUMENT_NAME] placeholder
 - **Multi-Format Support**: Added support for PDF, Word, Excel, Email, and other document formats
 - **Version Control**: Structured version management for all prompts and documentation
 - **Parameterized Configuration**: Flexible configuration management through JSON files
@@ -57,8 +58,8 @@ initial-margin-knowledge-base/
 │   ├── rules/                     # Atomic rules
 │   │   └── atomic-rules.json     # Extracted atomic rules
 │   └── source-files/              # Original source documents
-│       ├── Initial Margin Calculation Guide HKv14.pdf  # Source PDF (original)
-│       ├── Initial Margin Calculation Guide HKv14.md   # Source MD (converted)
+│       ├── [BUSINESS_DOCUMENT_NAME].pdf  # Source PDF (original)
+│       ├── [BUSINESS_DOCUMENT_NAME].md   # Source MD (converted)
 │       └── PROMPT1-OUTPUT.md      # Prompt 1 process output
 │
 ├── copilot-skills/                # AI Capability Layer - Copilot Skills
@@ -503,6 +504,7 @@ This repository implements a complete **15-prompt lifecycle management system**:
 | 1.0.6 | 2026-03-14 | Added LLM Checker System, updated README with complete documentation | AI Assistant |
 | 2.0.0 | 2026-03-18 | Major enhancement: Added version control, parameterized configuration, monitoring, security, best practices, and troubleshooting guide | System Administrator |
 | 2.1.0 | 2026-03-18 | Added multi-format support for PDF, Word, Excel, Email, and other document formats | System Administrator |
+| 2.2.0 | 2026-03-18 | Made prompts document-agnostic with [BUSINESS_DOCUMENT_NAME] placeholder for generic template support | System Administrator |
 
 ---
 
@@ -777,5 +779,5 @@ For questions or issues:
 ---
 
 **Last Updated**: 2026-03-18  
-**Knowledge Base Version**: 2.1.0  
+**Knowledge Base Version**: 2.2.0  
 **Status**: Active Development

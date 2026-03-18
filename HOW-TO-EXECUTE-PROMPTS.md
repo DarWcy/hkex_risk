@@ -1,6 +1,6 @@
 # How to Execute Prompts - Complete Guide
 
-**Version**: 2.0.0
+**Version**: 2.1.0
 **Last Updated**: 2026-03-18
 **Author**: System Administrator
 
@@ -11,13 +11,25 @@ This guide provides step-by-step instructions for executing all 15 prompts in co
 ## Prerequisites
 
 Before starting, ensure you have:
-- Access to source business documentation (PDF/Word)
+- Access to source business documentation (PDF/Word/Excel/Email/etc.)
 - LLM API access (for both Marker and Checker)
 - Git repository cloned locally
 - All configuration files in place
 - **Configuration Management**: Review `config/prompt-config.json` for parameterized settings
 - **Monitoring Setup**: Ensure monitoring and alerting systems are configured
 - **Security Setup**: Verify access controls and security configurations are in place
+
+## Generic Template Usage
+
+The prompts in `chat-prompt-en.md` are now designed as generic templates. Before using them, you need to:
+
+1. **Replace Placeholder**: Replace all instances of `[BUSINESS_DOCUMENT_NAME]` with your actual document name
+2. **Update File Paths**: Ensure file paths in the prompts match your actual directory structure
+3. **Configure Input**: Provide the actual content of your business document as input
+
+### Example:
+- If your document is named "Credit Risk Assessment Guide v2.0", replace all `[BUSINESS_DOCUMENT_NAME]` with `Credit Risk Assessment Guide v2.0`
+- The output file will be created at `docs/source-files/Credit Risk Assessment Guide v2.0.md`
 
 ## Configuration Management
 
