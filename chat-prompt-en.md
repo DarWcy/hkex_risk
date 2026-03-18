@@ -218,10 +218,10 @@ Generate structured Markdown knowledge base files with paragraph IDs and establi
 
 ```
 ### Instructions
-Based on the provided business documentation [Initial Margin Calculation Guide HKv14], generate **structured Markdown files with unique paragraph IDs** for Git-based knowledge base management, meeting the following requirements:
+Based on the provided business documentation [BUSINESS_DOCUMENT_NAME], generate **structured Markdown files with unique paragraph IDs** for Git-based knowledge base management, meeting the following requirements:
 
 0. **Multi-Format to MD Conversion and Validation**:
-   - **Check Existing MD**: Before processing, check if a verbatim MD version exists at `docs/source-files/Initial Margin Calculation Guide HKv14.md`
+   - **Check Existing MD**: Before processing, check if a verbatim MD version exists at `docs/source-files/[BUSINESS_DOCUMENT_NAME].md`
    - **Detect Source Format**: Identify the source document format (PDF, Word, Excel, Email, etc.)
    - **Validation if Exists**: If MD exists, validate its match with the original document:
      - Compare content completeness (word count, section count)
@@ -235,7 +235,7 @@ Based on the provided business documentation [Initial Margin Calculation Guide H
      - **Email**: Convert email content to MD format
      - **Other Formats**: Use appropriate conversion method
      - Maintain original headings, tables, and structure
-     - Create `docs/source-files/Initial Margin Calculation Guide HKv14.md`
+     - Create `docs/source-files/[BUSINESS_DOCUMENT_NAME].md`
      - Document conversion process and quality metrics
 
 1. **Document Modularization**: Split the complete guide into logical modules based on business domains (e.g., Introduction, Risk Parameters, Input Data, Calculation Methods, etc.).
@@ -696,7 +696,7 @@ Based on the structured MD knowledge base (including upstream and downstream), g
 
 ```
 ### Instructions
-Based on the following [Initial Margin Calculation Guide HKv14] MD files (use only this content), develop **modular, traceable, pre-embedded BDD relationship, automation Script-supporting** Skills for GitHub Copilot, meeting the following requirements:
+Based on the following [BUSINESS_DOCUMENT_NAME] MD files (use only this content), develop **modular, traceable, pre-embedded BDD relationship, automation Script-supporting** Skills for GitHub Copilot, meeting the following requirements:
 
 #### Import/Export Mechanism for Skills
 
@@ -1296,7 +1296,7 @@ Structure Modifications:
 
 ```
 ### Instructions
-Based on the generated [Initial Margin Calculation Guide HKv14] Copilot Skill files, generate **Skill supporting documents supporting BDD relationship real-time updates, Reference verification, and Script execution**, meeting the following requirements:
+Based on the generated [BUSINESS_DOCUMENT_NAME] Copilot Skill files, generate **Skill supporting documents supporting BDD relationship real-time updates, Reference verification, and Script execution**, meeting the following requirements:
 1. Skill index file (index.md): Classify by **module**, including Skill ID/description/trigger words/file link/rule version/structured Reference/BDD relationship/Script path, supporting real-time editing and updating of relationships. **Add Skill dependency graph visualization** showing relationships between Skills, including direct and indirect dependencies with directional arrows.
 2. Relationship management file (skill-bdd-relation.md): Generate an **editable relationship table**, adding a "Reference Integrity" column. Fields are "Skill ID/Rule_Source/Test_Reference/BDD test case ID/BDD feature file path/Reference integrity/update time/updater", supporting real-time maintenance. **Add dependency relationship table** with fields "Source Skill ID/Target Skill ID/Dependency Type/Strength/Update Time/Updater".
 3. Usage guidelines (usage-guidelines.md): Include Skill integration methods, trigger word usage specifications, Skill synchronous update process, **BDD relationship/Reference update specifications**, Script execution steps (by GitHub/M365 scenario), and Skill calling requirements during multi-model verification. **Add dependency graph maintenance instructions** for real-time updates.
@@ -1448,7 +1448,7 @@ Based on the generated [Initial Margin Calculation Guide HKv14] Copilot Skill fi
 
 ```
 ### Instructions
-Based on the generated [Initial Margin Calculation Guide HKv14] Copilot Skill files, generate **automation Scripts (Python) + M365 natural language operation guidance + execution result verification table**, meeting the following requirements:
+Based on the generated [BUSINESS_DOCUMENT_NAME] Copilot Skill files, generate **automation Scripts (Python) + M365 natural language operation guidance + execution result verification table**, meeting the following requirements:
 1. Script generation: Generate 6 types of automation Scripts (directly runnable, including comments/configuration slots/exception handling) to `copilot-skills/scripts/` directory:
    - **Skill-Reference-Sync Script**: Automatically synchronize Skill and MD file Reference relationships, update skill-bdd-relation.md.
    - **BDD-Relationship-Update Script**: Trigger BDD scenario and Skill relationship updates, update tests/bdd-relation-manager.md.
@@ -1613,7 +1613,7 @@ Based on the MD knowledge base/Copilot Skill, generate **strictly rule-aligned, 
 
 ```
 ### Instructions
-Based on the following [Initial Margin Calculation Guide HKv14] rule points (use only this content), generate **verifiable, traceable, iterative, pre-embedded multi-dimensional relationships + Reference verification slots** structured test cases, meeting the following requirements:
+Based on the following [BUSINESS_DOCUMENT_NAME] rule points (use only this content), generate **verifiable, traceable, iterative, pre-embedded multi-dimensional relationships + Reference verification slots** structured test cases, meeting the following requirements:
 1. Test cases strictly align with rule constraints, with no scenario designs outside rules, covering positive compliance, negative prohibition, and exception scenarios, marking the belonging **global process nodes**.
 2. Test cases use a unified reusable template, with a template structure containing **multi-dimensional relationships + Reference verification slots** for easy real-time updates. The structure is as follows:
    - Test Case ID: TC-[module abbreviation]-[number] (e.g., TC-IM-CALC-001, TC-RISK-PARAM-001), avoiding duplication.
@@ -1849,7 +1849,7 @@ When business rules are updated (new documents added/existing documents modified
 
 ```
 ### Instructions
-Based on the current [Initial Margin Calculation Guide HKv14] Git structured knowledge base framework, generate a knowledge base synchronization update process for **adding new business documents**, with the core requirement of "incremental addition, relationship/Reference/Script real-time synchronization, no associated erroneous modifications", meeting the following requirements:
+Based on the current [BUSINESS_DOCUMENT_NAME] Git structured knowledge base framework, generate a knowledge base synchronization update process for **adding new business documents**, with the core requirement of "incremental addition, relationship/Reference/Script real-time synchronization, no associated erroneous modifications", meeting the following requirements:
 1. Business scenario: New business documents are added, original rules remain unchanged, new rules need to be associated with existing MD rules/Copilot Skills/test cases/BDD and Reference/Script.
 2. Incremental update process: Generate a step-by-step incremental update process (including step name/operation requirements/Reference/Script update standards/verification standards).
 3. Global process node matching: New documents need to be matched with existing global process nodes, generate **global process node matching requirements**.
@@ -1896,7 +1896,7 @@ Existing Knowledge Base Structure: [Paste existing MD file list + Skill list + t
 
 ```
 ### Instructions
-Based on the current [Initial Margin Calculation Guide HKv14] Git structured knowledge base framework, generate a knowledge base synchronization update process for **updating existing business documents**, with the core requirement of "incremental modification, relationship/Reference/Script real-time synchronization, no associated erroneous modifications", meeting the following requirements:
+Based on the current [BUSINESS_DOCUMENT_NAME] Git structured knowledge base framework, generate a knowledge base synchronization update process for **updating existing business documents**, with the core requirement of "incremental modification, relationship/Reference/Script real-time synchronization, no associated erroneous modifications", meeting the following requirements:
 1. Business scenario: Update existing business documents, original rules revised/optimized/corrected, may affect associated MD rules/Copilot Skills/test cases/BDD and Reference/Script.
 2. Synchronization update process: Generate a step-by-step synchronization update process (including step name/operation requirements/modification specifications/Reference/Script update requirements).
 3. Rule update impact scope: Identify all potentially affected MD rules/Copilot Skills/test cases/BDD and Reference/Script, generate **Rule Update Impact Scope List**.
@@ -3459,4 +3459,4 @@ project-root/
 
 ---
 
-**Note**: This prompt set is designed for the [Initial Margin Calculation Guide HKv14] business scenario and can be adapted to other business scenarios as needed.
+**Note**: This prompt set is designed as a generic template that can be adapted to any business scenario. Replace [BUSINESS_DOCUMENT_NAME] with your actual document name when using these prompts.
