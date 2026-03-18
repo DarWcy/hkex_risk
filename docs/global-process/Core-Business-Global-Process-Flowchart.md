@@ -1,7 +1,19 @@
 # Core Business Global Process Flowchart - Initial Margin Calculation Guide HKv14 Version 1.4
 
+**Version**: 2.0.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ## Target Audience
 BA + QA Lead + Automation Tester
+
+## Enhanced Features
+This version includes:
+- **Version Control**: Structured version management for process tracking
+- **Parameterized Configuration**: Flexible configuration support
+- **Monitoring Integration**: Real-time monitoring capabilities
+- **Security Considerations**: Access control and audit logging
+- **Enhanced Traceability**: Improved rule-to-process mapping
 
 ## Rule Traceability
 - Original Document: Initial Margin Calculation Guide HKv14

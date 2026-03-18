@@ -1,8 +1,23 @@
 # Initial Margin Calculation Knowledge Base
 
+**Version**: 2.0.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ## Repository Overview
 
-This Git repository serves as a **traceable, verifiable, updatable, and scalable** test business knowledge common baseline for the Initial Margin Calculation Guide HKv14. It supports full lifecycle management of business rules, AI-assisted capabilities (GitHub Copilot Skills), test assets (BDD scenarios), and comprehensive quality assurance through the LLM Checker System.
+This Git repository serves as a **traceable, verifiable, updatable, and scalable** test business knowledge common baseline for the Initial Margin Calculation Guide HKv14. It supports full lifecycle management of business rules, AI-assisted capabilities (GitHub Copilot Skills), test assets (BDD scenarios), and comprehensive quality assurance through LLM Checker System.
+
+### Enhanced Features (Version 2.0.0)
+
+This version includes significant enhancements:
+- **Version Control**: Structured version management for all prompts and documentation
+- **Parameterized Configuration**: Flexible configuration management through JSON files
+- **Real-time Monitoring**: Comprehensive monitoring and alerting system
+- **Security Considerations**: Access control, input validation, and audit logging
+- **Enhanced Traceability**: Improved rule-to-process mapping and bidirectional references
+- **Best Practices**: Comprehensive guidelines for knowledge base management, skill development, and test automation
+- **Troubleshooting Guide**: Detailed common issues and solutions
 
 ### Core Objectives
 
@@ -38,6 +53,8 @@ initial-margin-knowledge-base/
 │   ├── global-process/            # Core business global process
 │   │   ├── GLOBAL-PROCESS.md      # Process flow documentation
 │   │   └── Core-Business-Global-Process-Flowchart.md  # Process flowchart
+│   ├── rules/                     # Atomic rules
+│   │   └── atomic-rules.json     # Extracted atomic rules
 │   └── source-files/              # Original source documents
 │       ├── Initial Margin Calculation Guide HKv14.pdf  # Source PDF (original)
 │       ├── Initial Margin Calculation Guide HKv14.md   # Source MD (converted)
@@ -45,17 +62,26 @@ initial-margin-knowledge-base/
 │
 ├── copilot-skills/                # AI Capability Layer - Copilot Skills
 │   ├── scripts/                   # Automation scripts
-│   │   ├── skill-reference-sync.py
-│   │   ├── multi-model-verify.py
+│   │   ├── M365-OPERATION-GUIDE.md
+│   │   ├── SCRIPT-USAGE-GUIDE.md
 │   │   ├── bdd-relationship-update.py
-│   │   └── ...
+│   │   ├── dependency-integrity-validate.py
+│   │   ├── execution-result-validate.py
+│   │   ├── multi-model-verify.py
+│   │   ├── skill-consistency-validate.py
+│   │   └── skill-reference-sync.py
 │   ├── skill-definitions/         # Individual skill files
+│   │   ├── hkex-calculation-examples.md
+│   │   ├── hkex-collateral-management.md
+│   │   ├── hkex-corporate-action.md
+│   │   ├── hkex-input-data.md
 │   │   ├── hkex-intro-overview.md
-│   │   ├── hkex-risk-parameters.md
-│   │   └── ...
+│   │   ├── hkex-margin-adjustment.md
+│   │   ├── hkex-market-risk.md
+│   │   ├── hkex-other-risk.md
+│   │   ├── hkex-position-processing.md
+│   │   └── hkex-risk-parameters.md
 │   ├── skill-index.md             # Skill index table
-│   ├── skill-bdd-relation.md      # Skill-BDD relationship management
-│   ├── usage-guidelines.md        # Skill usage guide
 │   ├── PROMPT3-INPUT.md           # Prompt 3 input
 │   └── PROMPT3-OUTPUT.md          # Prompt 3 process output
 │
@@ -63,50 +89,123 @@ initial-margin-knowledge-base/
 │   ├── test-cases/                # Structured test cases
 │   │   ├── README.md              # Test case guidelines
 │   │   ├── index.md               # Test case index
-│   │   ├── TC-IM-CALC-001.md      # Test case examples
-│   │   └── ...
+│   │   ├── TC-COMPLIANCE-001.md
+│   │   ├── TC-IM-CALC-001.md
+│   │   └── TC-IM-CALC-002.md
 │   ├── bdd/                       # BDD scenarios
 │   │   ├── features/              # Feature files (.feature)
+│   │   │   ├── FT-COMPLIANCE-001.feature
+│   │   │   ├── FT-COMPLIANCE-002.feature
+│   │   │   ├── FT-COMPLIANCE-003.feature
+│   │   │   ├── FT-IM-CALC-001.feature
+│   │   │   ├── FT-IM-CALC-002.feature
+│   │   │   ├── FT-IM-CALC-003.feature
+│   │   │   ├── FT-IM-CALC-004.feature
+│   │   │   ├── FT-RISK-PARAM-001.feature
+│   │   │   ├── FT-RISK-PARAM-002.feature
+│   │   │   └── FT-RISK-PARAM-003.feature
 │   │   ├── steps/                 # Python step definitions
+│   │   │   └── step_definitions.py
 │   │   ├── templates/             # BDD templates
+│   │   │   └── system/            # System templates
+│   │   │       ├── type-a-ba-template.feature
+│   │   │       ├── type-b-qa-template.feature
+│   │   │       ├── type-c-automation-template.feature
+│   │   │       └── type-d-general-template.feature
 │   │   ├── learned/               # Learned template configurations
-│   │   └── diff-reports/          # Difference analysis reports
+│   │   │   ├── style-guide.md
+│   │   │   └── template-profiles.json
+│   │   ├── diff-reports/          # Difference analysis reports
+│   │   │   └── diff-report.md
+│   │   └── verification/          # Verification tools
+│   │       ├── __init__.py
+│   │       └── test-plan-change-verifier.py
+│   ├── test-plans/                # Test plan templates
+│   │   ├── test-plan-automation-tester-template.md
+│   │   ├── test-plan-ba-template.md
+│   │   ├── test-plan-mixed-template.md
+│   │   └── test-plan-qa-lead-template.md
+│   ├── config/                    # Test configuration
+│   │   ├── skill-reference-spec.md
+│   │   └── skill-verify-config.md
 │   ├── bdd-relation-manager.md    # BDD relationship management
 │   ├── skill-bdd-relation.md      # Skill-BDD relationship
+│   ├── index.md                   # Test index
 │   ├── usage-guidelines.md        # Test usage guidelines
 │   ├── PROMPT4-INPUT.md           # Prompt 4 input
 │   └── PROMPT4-OUTPUT.md          # Prompt 4 process output
 │
 ├── config/                        # Configuration Layer
+│   ├── rule-schema.json           # Rule schema definition
 │   ├── FRAMEWORK-CONFIG.md        # Framework configuration
 │   ├── RULES-VERSION.md           # Rule version overview
-│   ├── PROMPT2-OUTPUT.md          # Prompt 2 process output
-│   ├── skill-reference-spec.md    # Reference specifications
-│   └── skill-verify-config.md     # Skill verification config
+│   └── PROMPT2-OUTPUT.md          # Prompt 2 process output
 │
 ├── governance/                    # Governance Layer - Quality Assurance & Process
 │   ├── README.md                  # Governance overview
 │   ├── DIRECTORY-STRUCTURE-PROPOSAL.md  # Directory structure proposal
+│   ├── change-history.md          # Change history
 │   │
 │   ├── analysis/                  # Analysis and research documents
 │   │   ├── prompts/               # Prompt logic analysis
+│   │   │   ├── prompt-3-4-5-logic-analysis.md
+│   │   │   ├── prompt-6-7-analysis.md
+│   │   │   └── prompt-consistency-analysis.md
 │   │   ├── outputs/               # Prompt input/output analysis
+│   │   │   ├── PROMPT5-INPUT.md
+│   │   │   ├── PROMPT5-OUTPUT.md
+│   │   │   ├── PROMPT6-INPUT.md
+│   │   │   ├── PROMPT6-OUTPUT.md
+│   │   │   ├── PROMPT7-INPUT.md
+│   │   │   └── PROMPT7-OUTPUT.md
 │   │   └── templates/             # Template analysis
+│   │       ├── prompt-template-creation-guide.md
+│   │       └── template-prompt-mapping.md
 │   │
 │   ├── reviews/                   # Review system
 │   │   ├── templates/             # Review templates by type
 │   │   │   ├── skills/            # Skill review templates
+│   │   │   │   ├── skill-review-template.md
+│   │   │   │   └── skill-validation-review-template.md
 │   │   │   ├── test/              # Test-related templates
+│   │   │   │   ├── bdd-review-template.md
+│   │   │   │   ├── test-execution-review-template.md
+│   │   │   │   └── testcase-review-template.md
 │   │   │   ├── code/              # Code review templates
+│   │   │   │   └── script-review-template.md
 │   │   │   ├── docs/              # Documentation templates
+│   │   │   │   ├── documentation-review-template.md
+│   │   │   │   ├── md-file-review-template.md
+│   │   │   │   └── supporting-docs-review-template.md
 │   │   │   ├── framework/         # Framework templates
+│   │   │   │   ├── framework-review-template.md
+│   │   │   │   └── incremental-update-review-template.md
 │   │   │   └── governance/        # Governance templates
+│   │   │       ├── audit-compliance-review-template.md
+│   │   │       └── performance-review-template.md
 │   │   ├── feedback/              # Feedback templates
-│   │   └── executions/            # Review executions by prompt
+│   │   │   ├── confidence-assessment.md
+│   │   │   ├── failure-analysis-template.md
+│   │   │   └── feedback-template.md
+│   │   ├── executions/            # Review executions by prompt
+│   │   │   ├── prompt1/
+│   │   │   ├── prompt2/
+│   │   │   ├── prompt3/
+│   │   │   ├── prompt4/
+│   │   │   ├── prompt5/
+│   │   │   ├── prompt6/
+│   │   │   ├── prompt7/
+│   │   │   ├── prompt8-9/
+│   │   │   ├── prompt10-11/
+│   │   │   ├── prompt12-13/
+│   │   │   └── prompt14-15/
+│   │   ├── test-plan-confidence-template.md
+│   │   ├── test-plan-failure-analysis-template.md
+│   │   └── test-plan-review-template.md
 │   │
 │   ├── checker/                   # LLM Checker System ⭐
 │   │   ├── prompts/               # Checker prompts
-│   │   │   ├── checker-prompt.md              # Main checker prompt
+│   │   │   ├── checker-prompt.md
 │   │   │   ├── generic-checker-prompt-generator.md
 │   │   │   └── generic-checker-prompt-generator-usage.md
 │   │   ├── templates/             # Checker templates
@@ -114,9 +213,21 @@ initial-margin-knowledge-base/
 │   │   │   ├── checker-output-template.md
 │   │   │   ├── diff-analysis-template.md
 │   │   │   ├── exit-report-template.md
-│   │   │   └── feedback-template-*.md
+│   │   │   ├── feedback-template-final-approval.md
+│   │   │   ├── feedback-template-general.md
+│   │   │   ├── feedback-template-initial-review.md
+│   │   │   └── feedback-template-peer-review.md
 │   │   ├── analysis/              # Analysis templates
+│   │   │   └── analysis-template.md
 │   │   ├── outputs/               # Output templates
+│   │   │   ├── output-template.md
+│   │   │   ├── prompt6-checker-output-20260315.md
+│   │   │   ├── prompt6-checker-output-20260315-002.md
+│   │   │   ├── prompt6-checker-output-20260315-003.md
+│   │   │   ├── prompt6-checker-output-20260315-004.md
+│   │   │   ├── prompt6-checker-output-20260315-005.md
+│   │   │   ├── prompt6-checker-output-20260315-006.md
+│   │   │   └── prompt7-checker-output-20260315.md
 │   │   ├── config/                # Configuration
 │   │   │   ├── confidence-level-config.md
 │   │   │   ├── review-feedback-config.md
@@ -133,6 +244,7 @@ initial-margin-knowledge-base/
 │   │   ├── prompt-update-validator.py
 │   │   ├── prompt-update-validator.ps1
 │   │   ├── PROMPT-UPDATE-VALIDATOR-GUIDE.md
+│   │   ├── permission-management.md
 │   │   └── prompt-validation-*.json
 │   │
 │   └── process/                   # Process documentation
@@ -143,9 +255,15 @@ initial-margin-knowledge-base/
 │       ├── change-history.md
 │       └── manual-fallback.md
 │
+├── scripts/                       # Root-level scripts
+│   └── rule-extractor.py         # Rule extraction script
+│
 ├── chat-prompt-en.md              # English prompt configuration (source of truth)
 ├── chat-prompt.md                 # Chinese prompt configuration (synchronized)
+├── HOW-TO-EXECUTE-PROMPTS.md      # Prompt execution guide
+├── PROMPT-WORKFLOW-FLOWCHART.md   # Complete workflow flowchart
 ├── behave.ini                     # Behave configuration
+├── .gitignore                     # Git ignore rules
 └── README.md                      # This file
 ```
 
@@ -162,6 +280,15 @@ The Checker System uses a second LLM (checker) to validate the outputs of the fi
 - BDD scenarios are executable and traceable
 - References are consistent and bidirectional
 - Quality meets confidence thresholds
+
+### Enhanced Features (Version 2.0.0)
+
+The Checker System now includes:
+- **Real-time Monitoring**: Track execution metrics, performance, and errors
+- **Security Layer**: Access control, input validation, and audit logging
+- **Parameterized Configuration**: Flexible configuration management
+- **Alerting System**: Threshold-based alerts for critical events
+- **Multi-model Support**: Support for multiple LLM validators
 
 ### Key Components
 
@@ -184,7 +311,119 @@ The Checker System uses a second LLM (checker) to validate the outputs of the fi
    - [CHECKER-FLOWCHART.md](governance/checker/CHECKER-FLOWCHART.md) - Process visualization
    - [PRESERVATION-GUIDE.md](governance/checker/PRESERVATION-GUIDE.md) - Output preservation guidelines
 
-### Quick Start
+### Configuration Management
+
+### Parameterized Configuration
+All prompts and systems now support parameterized configuration through `config/prompt-config.json`:
+
+```json
+{
+  "prompt_config": {
+    "common": {
+      "language": "English",
+      "output_dir": "outputs",
+      "timeout": 300
+    },
+    "prompt1": {
+      "md_template": "templates/md-template.md",
+      "rule_extractor": "scripts/rule-extractor.py"
+    },
+    "prompt3": {
+      "skill_templates": "templates/skill-templates/",
+      "user_types": ["BA", "QA Lead", "Automation Tester", "Mixed"]
+    }
+  }
+}
+```
+
+### Environment Variables
+Configure environment-specific settings:
+- `PROMPT_ENV`: Development/Staging/Production
+- `LLM_API_KEY`: API key for LLM services
+- `MONITORING_ENABLED`: Enable/disable monitoring
+- `SECURITY_LEVEL`: Security compliance level
+
+## Monitoring and Alerting
+
+### Real-time Monitoring
+All prompt executions are monitored in real-time:
+- **Execution Time**: Track time for each prompt execution
+- **Resource Usage**: Monitor memory and CPU usage
+- **Error Tracking**: Log and track all errors
+- **Dependency Monitoring**: Track dependencies between prompts
+
+### Alerting System
+Threshold-based alerts are configured for:
+- **Performance**: Alert if execution time exceeds threshold
+- **Errors**: Alert on critical errors
+- **Resource Usage**: Alert on high resource consumption
+- **Confidence Levels**: Alert if checker confidence is below threshold
+
+## Security Considerations
+
+### Access Control
+- Role-based access control for all prompts and resources
+- Least privilege principle applied to all operations
+- Audit logging enabled for all operations
+
+### Data Protection
+- Input validation for all user inputs
+- Data encryption for sensitive information
+- Secure default configurations
+- Regular security updates applied
+
+### Best Practices
+- Validate all inputs before processing
+- Use secure communication channels
+- Implement proper error handling
+- Regular security audits
+
+## Best Practices and Troubleshooting
+
+### Knowledge Base Management
+- **Modularization**: Split large documents into smaller, focused modules
+- **Consistent Naming**: Use consistent naming conventions for files and IDs
+- **Version Control**: Implement proper Git version control for all knowledge base files
+- **Regular Backups**: Schedule regular backups of the knowledge base
+- **Access Control**: Implement appropriate access controls for sensitive information
+
+### Skill Development
+- **Reusability**: Design Skills to be reusable across different scenarios
+- **Clear Documentation**: Document each Skill's purpose, inputs, and outputs
+- **Performance Optimization**: Optimize Skill content for prompt response time
+- **Testing**: Test Skills with different input variations
+- **Versioning**: Maintain version history for Skills
+
+### Test Automation
+- **BDD Best Practices**: Follow Gherkin syntax best practices
+- **Step Definition Reuse**: Reuse step definitions across scenarios
+- **Parallel Execution**: Run tests in parallel to reduce execution time
+- **Reporting**: Generate comprehensive test reports
+- **CI/CD Integration**: Integrate tests into CI/CD pipelines
+
+### Common Issues and Solutions
+
+**Issue: Rule extraction fails**
+- **Possible Causes**: Malformed Markdown, missing structured IDs, invalid rule format
+- **Solution**: Validate Markdown syntax, ensure all paragraphs have structured IDs, check rule format against schema
+
+**Issue: Skill generation errors**
+- **Possible Causes**: Insufficient input information, conflicting references, invalid user type
+- **Solution**: Provide complete input data, resolve reference conflicts, use valid user type
+
+**Issue: BDD scenario execution failures**
+- **Possible Causes**: Missing step definitions, incorrect Gherkin syntax, environment configuration issues
+- **Solution**: Implement all required step definitions, validate Gherkin syntax, check environment setup
+
+**Issue: Incremental update issues**
+- **Possible Causes**: Change detection failures, conflicting updates, missing dependencies
+- **Solution**: Verify change detection logic, resolve update conflicts, ensure all dependencies are present
+
+**Issue: Performance issues**
+- **Possible Causes**: Large knowledge base, complex Skills, inefficient scripts
+- **Solution**: Optimize knowledge base structure, simplify Skill content, improve script efficiency
+
+## Quick Start
 
 1. **Prepare Input Files**
    - Marker output: `governance/analysis/outputs/PROMPT6-OUTPUT.md` or `PROMPT7-OUTPUT.md`
@@ -261,6 +500,7 @@ This repository implements a complete **15-prompt lifecycle management system**:
 | 1.0.4 | 2026-03-14 | Renamed Prompt 16 to Prompt 5 and renumbered all subsequent prompts for consistent numbering | AI Assistant |
 | 1.0.5 | 2026-03-14 | Fixed module naming and file locations, updated all affected documentation | AI Assistant |
 | 1.0.6 | 2026-03-14 | Added LLM Checker System, updated README with complete documentation | AI Assistant |
+| 2.0.0 | 2026-03-18 | Major enhancement: Added version control, parameterized configuration, monitoring, security, best practices, and troubleshooting guide | System Administrator |
 
 ---
 

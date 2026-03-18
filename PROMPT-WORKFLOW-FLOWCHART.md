@@ -1,8 +1,12 @@
 # Complete Prompt Workflow Flowchart
 
+**Version**: 2.0.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ## Overview
 
-This document illustrates the complete workflow of all 15 prompts plus the LLM Checker System, showing dependencies, data flow, and validation checkpoints.
+This document illustrates the complete workflow of all 15 prompts plus the LLM Checker System, showing dependencies, data flow, and validation checkpoints. This version includes enhanced monitoring, security, and parameterized configuration features.
 
 ## Complete System Architecture
 
@@ -10,6 +14,12 @@ This document illustrates the complete workflow of all 15 prompts plus the LLM C
 graph TB
     subgraph "Source Documents"
         SRC[Initial Margin Calculation Guide HKv14.pdf]
+    end
+
+    subgraph "Configuration & Monitoring"
+        CFG[Configuration<br/>Parameterized Settings]
+        MON[Monitoring System<br/>Real-time Tracking]
+        SEC[Security Layer<br/>Access Control]
     end
 
     subgraph "Phase I: Knowledge Base Foundation"
@@ -51,6 +61,22 @@ graph TB
     end
 
     SRC --> P1
+    CFG --> P1
+    CFG --> P2
+    CFG --> P3
+    CFG --> P4
+    CFG --> P5
+    CFG --> P6
+    CFG --> P7
+    CFG --> P8
+    CFG --> P9
+    CFG --> P10
+    CFG --> P11
+    CFG --> P12
+    CFG --> P13
+    CFG --> P14
+    CFG --> P15
+
     P1 --> P2
     P2 --> P3
     P2 --> P4
@@ -76,10 +102,47 @@ graph TB
     P13 --> P14
     P14 --> P15
 
+    P1 -.->|Monitor| MON
+    P2 -.->|Monitor| MON
+    P3 -.->|Monitor| MON
+    P4 -.->|Monitor| MON
+    P5 -.->|Monitor| MON
+    P6 -.->|Monitor| MON
+    P7 -.->|Monitor| MON
+    P8 -.->|Monitor| MON
+    P9 -.->|Monitor| MON
+    P10 -.->|Monitor| MON
+    P11 -.->|Monitor| MON
+    P12 -.->|Monitor| MON
+    P13 -.->|Monitor| MON
+    P14 -.->|Monitor| MON
+    P15 -.->|Monitor| MON
+
+    P1 -.->|Secure| SEC
+    P2 -.->|Secure| SEC
+    P3 -.->|Secure| SEC
+    P4 -.->|Secure| SEC
+    P5 -.->|Secure| SEC
+    P6 -.->|Secure| SEC
+    P7 -.->|Secure| SEC
+    P8 -.->|Secure| SEC
+    P9 -.->|Secure| SEC
+    P10 -.->|Secure| SEC
+    P11 -.->|Secure| SEC
+    P12 -.->|Secure| SEC
+    P13 -.->|Secure| SEC
+    P14 -.->|Secure| SEC
+    P15 -.->|Secure| SEC
+
+    MON -.->|Alert| SEC
+
     style P6 fill:#ffcccc
     style P7 fill:#ffcccc
     style CH6 fill:#ccffcc
     style CH7 fill:#ccffcc
+    style CFG fill:#e6f3ff
+    style MON fill:#fff4e6
+    style SEC fill:#ffe6e6
 ```
 
 ## Phase I: Knowledge Base Foundation

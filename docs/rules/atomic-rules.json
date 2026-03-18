@@ -1,0 +1,248 @@
+{
+  "rules": [
+    {
+      "rule_id": "RULE-IM-001",
+      "domain": "IM",
+      "structured_id": "DC-IMRPF-001",
+      "statement": "Daily risk parameter files must be disseminated by 11:00 HK time on business days",
+      "conditions": [
+        "Business day",
+        "Market open"
+      ],
+      "exceptions": [],
+      "references": [
+        "DC-IMRPF-002",
+        "DC-IMRPF-003"
+      ],
+      "coverage": "covered",
+      "source": "docs/source-files/Risk-Parameter-File-Specification.md",
+      "version": "v14",
+      "created_at": "2026-03-18T10:00:00Z",
+      "heading": "Risk Parameter File Dissemination Timing"
+    },
+    {
+      "rule_id": "RULE-IM-002",
+      "domain": "IM",
+      "structured_id": "DC-IMRPF-002",
+      "statement": "Risk parameter files must contain all required fields including product codes, volatility parameters, and correlation matrices",
+      "conditions": [
+        "File generation process",
+        "Data validation"
+      ],
+      "exceptions": [],
+      "references": [
+        "DC-IMRPF-001",
+        "DC-IMRPF-005"
+      ],
+      "coverage": "covered",
+      "source": "docs/source-files/Risk-Parameter-File-Specification.md",
+      "version": "v14",
+      "created_at": "2026-03-18T10:00:00Z",
+      "heading": "Risk Parameter File Content Requirements"
+    },
+    {
+      "rule_id": "RULE-IM-003",
+      "domain": "IM",
+      "structured_id": "DC-IMRPF-003",
+      "statement": "Volatility parameters must be calculated using a 250-day historical window for equity products",
+      "conditions": [
+        "Equity products",
+        "Historical data availability"
+      ],
+      "exceptions": [
+        "Insufficient historical data"
+      ],
+      "references": [
+        "DC-IMRPF-002",
+        "MRCC-HVaR-001"
+      ],
+      "coverage": "covered",
+      "source": "docs/source-files/Risk-Parameter-File-Specification.md",
+      "version": "v14",
+      "created_at": "2026-03-18T10:00:00Z",
+      "heading": "Volatility Parameter Calculation Methodology"
+    },
+    {
+      "rule_id": "RULE-CALC-001",
+      "domain": "CALC",
+      "structured_id": "MRCC-HVaR-001",
+      "statement": "Historical VaR must be calculated using a 99% confidence level and 10-day holding period",
+      "conditions": [
+        "Historical VaR calculation",
+        "Sufficient historical data"
+      ],
+      "exceptions": [],
+      "references": [
+        "DC-IMRPF-003",
+        "MRCC-HVaR-002"
+      ],
+      "coverage": "covered",
+      "source": "docs/source-files/Market-Risk-Component-Calculation.md",
+      "version": "v14",
+      "created_at": "2026-03-18T10:00:00Z",
+      "heading": "Historical VaR Calculation Parameters"
+    },
+    {
+      "rule_id": "RULE-CALC-002",
+      "domain": "CALC",
+      "structured_id": "MRCC-HVaR-002",
+      "statement": "Stressed VaR must be calculated using the most severe 250-day period in the historical data",
+      "conditions": [
+        "Stressed VaR calculation",
+        "Historical stress period identification"
+      ],
+      "exceptions": [
+        "Insufficient historical data for stress period identification"
+      ],
+      "references": [
+        "MRCC-HVaR-001",
+        "MRCC-HVaR-003"
+      ],
+      "coverage": "covered",
+      "source": "docs/source-files/Market-Risk-Component-Calculation.md",
+      "version": "v14",
+      "created_at": "2026-03-18T10:00:00Z",
+      "heading": "Stressed VaR Calculation Methodology"
+    },
+    {
+      "rule_id": "RULE-DATA-001",
+      "domain": "DATA",
+      "structured_id": "DATA-001",
+      "statement": "Input data files must be validated for format, completeness, and consistency before processing",
+      "conditions": [
+        "Data ingestion process",
+        "Pre-processing validation"
+      ],
+      "exceptions": [],
+      "references": [
+        "DATA-002",
+        "DATA-003"
+      ],
+      "coverage": "covered",
+      "source": "docs/source-files/Input-Data-Specification.md",
+      "version": "v14",
+      "created_at": "2026-03-18T10:00:00Z",
+      "heading": "Input Data Validation Requirements"
+    },
+    {
+      "rule_id": "RULE-DATA-002",
+      "domain": "DATA",
+      "structured_id": "DATA-002",
+      "statement": "Position data must include unique identifiers, product codes, quantities, and market values",
+      "conditions": [
+        "Position data submission",
+        "Data format validation"
+      ],
+      "exceptions": [],
+      "references": [
+        "DATA-001",
+        "POS-001"
+      ],
+      "coverage": "covered",
+      "source": "docs/source-files/Input-Data-Specification.md",
+      "version": "v14",
+      "created_at": "2026-03-18T10:00:00Z",
+      "heading": "Position Data Content Requirements"
+    },
+    {
+      "rule_id": "RULE-POS-001",
+      "domain": "POS",
+      "structured_id": "POS-001",
+      "statement": "Positions must be netted at the product level before margin calculation",
+      "conditions": [
+        "Position processing",
+        "Margin calculation preparation"
+      ],
+      "exceptions": [
+        "Positions that cannot be netted due to different settlement dates"
+      ],
+      "references": [
+        "DATA-002",
+        "POS-002"
+      ],
+      "coverage": "covered",
+      "source": "docs/source-files/Position-Processing-Logic.md",
+      "version": "v14",
+      "created_at": "2026-03-18T10:00:00Z",
+      "heading": "Position Netting Rules"
+    },
+    {
+      "rule_id": "RULE-POS-002",
+      "domain": "POS",
+      "structured_id": "POS-002",
+      "statement": "Positions must be classified into risk buckets based on product type and maturity",
+      "conditions": [
+        "Position classification",
+        "Risk bucket assignment"
+      ],
+      "exceptions": [],
+      "references": [
+        "POS-001",
+        "MRCC-HVaR-001"
+      ],
+      "coverage": "covered",
+      "source": "docs/source-files/Position-Processing-Logic.md",
+      "version": "v14",
+      "created_at": "2026-03-18T10:00:00Z",
+      "heading": "Position Risk Bucket Classification"
+    },
+    {
+      "rule_id": "RULE-ADJ-001",
+      "domain": "ADJ",
+      "structured_id": "ADJ-001",
+      "statement": "Margin adjustments must be approved by a designated risk manager before implementation",
+      "conditions": [
+        "Margin adjustment request",
+        "Approval workflow"
+      ],
+      "exceptions": [
+        "Emergency adjustments requiring immediate implementation"
+      ],
+      "references": [
+        "ADJ-002",
+        "ADJ-003"
+      ],
+      "coverage": "covered",
+      "source": "docs/source-files/Margin-Adjustment-Process.md",
+      "version": "v14",
+      "created_at": "2026-03-18T10:00:00Z",
+      "heading": "Margin Adjustment Approval Requirements"
+    }
+  ],
+  "metadata": {
+    "total_rules": 10,
+    "covered_rules": 10,
+    "version": "v14",
+    "generated_at": "2026-03-18T10:00:00Z",
+    "source_directory": "docs/source-files",
+    "schema_version": "1.0"
+  },
+  "coverage_report": {
+    "total_rules": 10,
+    "covered_rules": 10,
+    "coverage_percentage": 100.0,
+    "domain_coverage": {
+      "IM": {
+        "total": 3,
+        "covered": 3
+      },
+      "CALC": {
+        "total": 2,
+        "covered": 2
+      },
+      "DATA": {
+        "total": 2,
+        "covered": 2
+      },
+      "POS": {
+        "total": 2,
+        "covered": 2
+      },
+      "ADJ": {
+        "total": 1,
+        "covered": 1
+      }
+    },
+    "generated_at": "2026-03-18T10:00:00Z"
+  }
+}

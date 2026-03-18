@@ -1,16 +1,90 @@
 # How to Execute Prompts - Complete Guide
 
+**Version**: 2.0.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ## Overview
 
-This guide provides step-by-step instructions for executing all 15 prompts in the correct sequence, including the LLM Checker System for validation.
+This guide provides step-by-step instructions for executing all 15 prompts in correct sequence, including LLM Checker System for validation. This guide has been enhanced with version control, parameterized configuration, monitoring capabilities, and security considerations.
 
 ## Prerequisites
 
 Before starting, ensure you have:
-- Access to the source business documentation (PDF/Word)
+- Access to source business documentation (PDF/Word)
 - LLM API access (for both Marker and Checker)
 - Git repository cloned locally
 - All configuration files in place
+- **Configuration Management**: Review `config/prompt-config.json` for parameterized settings
+- **Monitoring Setup**: Ensure monitoring and alerting systems are configured
+- **Security Setup**: Verify access controls and security configurations are in place
+
+## Configuration Management
+
+### Parameterized Configuration
+All prompts now support parameterized configuration through `config/prompt-config.json`:
+
+```json
+{
+  "prompt_config": {
+    "common": {
+      "language": "English",
+      "output_dir": "outputs",
+      "timeout": 300
+    },
+    "prompt1": {
+      "md_template": "templates/md-template.md",
+      "rule_extractor": "scripts/rule-extractor.py"
+    },
+    "prompt3": {
+      "skill_templates": "templates/skill-templates/",
+      "user_types": ["BA", "QA Lead", "Automation Tester", "Mixed"]
+    }
+  }
+}
+```
+
+### Environment Variables
+Configure environment-specific settings:
+- `PROMPT_ENV`: Development/Staging/Production
+- `LLM_API_KEY`: API key for LLM services
+- `MONITORING_ENABLED`: Enable/disable monitoring
+- `SECURITY_LEVEL`: Security compliance level
+
+## Monitoring and Alerting
+
+### Real-time Monitoring
+All prompt executions are monitored in real-time:
+- **Execution Time**: Track time for each prompt execution
+- **Resource Usage**: Monitor memory and CPU usage
+- **Error Tracking**: Log and track all errors
+- **Dependency Monitoring**: Track dependencies between prompts
+
+### Alerting System
+Threshold-based alerts are configured for:
+- **Performance**: Alert if execution time exceeds threshold
+- **Errors**: Alert on critical errors
+- **Resource Usage**: Alert on high resource consumption
+- **Confidence Levels**: Alert if checker confidence is below threshold
+
+## Security Considerations
+
+### Access Control
+- Role-based access control for all prompts and resources
+- Least privilege principle applied to all operations
+- Audit logging enabled for all operations
+
+### Data Protection
+- Input validation for all user inputs
+- Data encryption for sensitive information
+- Secure default configurations
+- Regular security updates applied
+
+### Best Practices
+- Validate all inputs before processing
+- Use secure communication channels
+- Implement proper error handling
+- Regular security audits
 
 ## Execution Sequence
 

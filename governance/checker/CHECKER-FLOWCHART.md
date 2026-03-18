@@ -1,46 +1,88 @@
 # LLM Checker System - Validation Flowchart
 
+**Version**: 2.0.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ## Overview
 
-This flowchart illustrates the complete validation process of the LLM Checker System, from input preparation to final validation results.
+This flowchart illustrates the complete validation process of the LLM Checker System, from input preparation to final validation results. This version includes enhanced monitoring, security features, and parameterized configuration capabilities.
+
+## Enhanced System Architecture
+
+The checker system now includes:
+- **Real-time Monitoring**: Track execution metrics, performance, and errors
+- **Security Layer**: Access control, input validation, and audit logging
+- **Parameterized Configuration**: Flexible configuration management
+- **Alerting System**: Threshold-based alerts for critical events
 
 ## Validation Flow
 
 ```mermaid
 graph TD
-    A[Start Validation] --> B[Prepare Input Files]
-    B --> C[Load Marker Output]
-    C --> D[Load Original Rules]
-    D --> E[Run Checker LLM]
-    E --> F[Validate Structure]
-    F --> G[Validate Content]
-    G --> H[Validate References]
-    H --> I[Calculate Confidence Level]
-    I --> J{Passed?}
-    J -->|Yes| K[Generate Validation Report]
-    J -->|No| L[Generate Difference Analysis]
-    L --> M[Provide Optimization Suggestions]
-    M --> N[Generate Validation Report]
-    K --> O[Initial Review Stage]
-    N --> O
-    O --> P{Initial Review Passed?}
-    P -->|Yes| Q[Peer Review Stage]
-    P -->|No| R[Request Re-review]
-    R --> E
-    Q --> S{Peer Review Passed?}
-    S -->|Yes| T[Final Approval Stage]
-    S -->|No| U[Escalate or Discuss]
-    U --> V{Escalation Resolved?}
-    V -->|Yes| T
-    V -->|No| W[Document Escalation]
-    T --> X{Final Approval?}
-    X -->|Approved| Y[Update Marker Output]
-    X -->|Rejected| Z[Document Rejection Reason]
-    X -->|Conditional| AA[Implement with Conditions]
-    Y --> AB[End Validation]
-    Z --> AB
-    AA --> AB
-    W --> AB
+    A[Start Validation] --> B[Security Check<br/>Access Control]
+    B --> C[Input Validation<br/>Security Layer]
+    C --> D[Prepare Input Files]
+    D --> E[Load Configuration<br/>Parameterized Settings]
+    E --> F[Start Monitoring<br/>Real-time Tracking]
+    F --> G[Load Marker Output]
+    G --> H[Load Original Rules]
+    H --> I[Run Checker LLM]
+    I --> J[Validate Structure]
+    J --> K[Validate Content]
+    K --> L[Validate References]
+    L --> M[Calculate Confidence Level]
+    M --> N[Monitor Performance<br/>Execution Time & Resources]
+    N --> O{Passed?}
+    O -->|Yes| P[Generate Validation Report]
+    O -->|No| Q[Generate Difference Analysis]
+    Q --> R[Provide Optimization Suggestions]
+    R --> S[Generate Validation Report]
+    P --> T[Initial Review Stage]
+    S --> T
+    T --> U{Initial Review Passed?}
+    U -->|Yes| V[Peer Review Stage]
+    U -->|No| W[Request Re-review]
+    W --> I
+    V --> X{Peer Review Passed?}
+    X -->|Yes| Y[Final Approval Stage]
+    X -->|No| Z[Escalate or Discuss]
+    Z --> AA{Escalation Resolved?}
+    AA -->|Yes| Y
+    AA -->|No| AB[Document Escalation]
+    Y --> AC{Final Approval?}
+    AC -->|Approved| AD[Update Marker Output]
+    AC -->|Rejected| AE[Document Rejection Reason]
+    AC -->|Conditional| AF[Implement with Conditions]
+    AD --> AG[End Validation]
+    AE --> AG
+    AF --> AG
+    AB --> AG
+    
+    F -.->|Monitor| AH[Monitoring Dashboard]
+    I -.->|Monitor| AH
+    J -.->|Monitor| AH
+    K -.->|Monitor| AH
+    L -.->|Monitor| AH
+    M -.->|Monitor| AH
+    N -.->|Monitor| AH
+    
+    AH --> AI{Alert Thresholds?}
+    AI -->|Performance Alert| AJ[Generate Alert]
+    AI -->|Error Alert| AJ
+    AI -->|Resource Alert| AJ
+    AI -->|Normal| AK[Continue Monitoring]
+    
+    AJ --> AL[Notify Security Team]
+    AL --> AK
+    AK --> I
+    
+    style B fill:#ffe6e6
+    style C fill:#ffe6e6
+    style F fill:#fff4e6
+    style AH fill:#fff4e6
+    style AJ fill:#ffcccc
+    style AL fill:#ffcccc
 ```
 
 ## Detailed Process Steps

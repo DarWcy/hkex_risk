@@ -1,8 +1,12 @@
 # LLM Checker System - How To Guide
 
+**Version**: 2.0.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ## Overview
 
-The LLM Checker System is designed to validate the outputs of the first LLM (marker) using a second LLM (checker). This system ensures that the generated test cases and BDD scenarios align with the original business rules and follow the required structure.
+The LLM Checker System is designed to validate outputs of first LLM (marker) using a second LLM (checker). This system ensures that generated test cases and BDD scenarios align with original business rules and follow the required structure. This version includes enhanced monitoring, security features, and parameterized configuration capabilities.
 
 ## Directory Structure
 

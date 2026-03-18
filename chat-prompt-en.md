@@ -1,5 +1,183 @@
 ---
 
+## Content Enhancements
+
+### 1. Example Code
+
+#### Rule Extractor Script Example
+```python
+def extract_rules_from_md(md_file_path):
+    """Extract atomic rules from Markdown file."""
+    rules = []
+    with open(md_file_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # Parse content and extract rules
+    # Example implementation
+    return rules
+
+def validate_rule_atomicity(rule):
+    """Validate if a rule is atomic."""
+    # Check if rule contains only one requirement
+    return len(rule.get('conditions', [])) == 1
+```
+
+#### BDD Scenario Example
+```gherkin
+Feature: Initial Margin Calculation
+  As a risk analyst
+  I want to verify initial margin calculations
+  So that I can ensure compliance with regulatory requirements
+
+  Scenario: Calculate initial margin for equity position
+    Given a client has an equity position of 100 shares at $50 each
+    When the initial margin requirement is 25%
+    Then the initial margin should be $1,250
+    And the maintenance margin should be $750
+```
+
+### 2. Best Practices
+
+#### Knowledge Base Management
+- **Modularization**: Split large documents into smaller, focused modules
+- **Consistent Naming**: Use consistent naming conventions for files and IDs
+- **Version Control**: Implement proper Git version control for all knowledge base files
+- **Regular Backups**: Schedule regular backups of the knowledge base
+- **Access Control**: Implement appropriate access controls for sensitive information
+
+#### Skill Development
+- **Reusability**: Design Skills to be reusable across different scenarios
+- **Clear Documentation**: Document each Skill's purpose, inputs, and outputs
+- **Performance Optimization**: Optimize Skill content for prompt response time
+- **Testing**: Test Skills with different input variations
+- **Versioning**: Maintain version history for Skills
+
+#### Test Automation
+- **BDD Best Practices**: Follow Gherkin syntax best practices
+- **Step Definition Reuse**: Reuse step definitions across scenarios
+- **Parallel Execution**: Run tests in parallel to reduce execution time
+- **Reporting**: Generate comprehensive test reports
+- **CI/CD Integration**: Integrate tests into CI/CD pipelines
+
+### 3. Troubleshooting Guide
+
+#### Common Issues and Solutions
+
+**Issue: Rule extraction fails**
+- **Possible Causes**: Malformed Markdown, missing structured IDs, invalid rule format
+- **Solution**: Validate Markdown syntax, ensure all paragraphs have structured IDs, check rule format against schema
+
+**Issue: Skill generation errors**
+- **Possible Causes**: Insufficient input information, conflicting references, invalid user type
+- **Solution**: Provide complete input data, resolve reference conflicts, use valid user type
+
+**Issue: BDD scenario execution failures**
+- **Possible Causes**: Missing step definitions, incorrect Gherkin syntax, environment configuration issues
+- **Solution**: Implement all required step definitions, validate Gherkin syntax, check environment setup
+
+**Issue: Incremental update issues**
+- **Possible Causes**: Change detection failures, conflicting updates, missing dependencies
+- **Solution**: Verify change detection logic, resolve update conflicts, ensure all dependencies are present
+
+**Issue: Performance issues**
+- **Possible Causes**: Large knowledge base, complex Skills, inefficient scripts
+- **Solution**: Optimize knowledge base structure, simplify Skill content, improve script efficiency
+
+## Technical Improvements
+
+### 1. Parameterized Configuration
+
+#### Configuration Management
+- **Centralized Configuration**: Use a centralized configuration file for all prompts
+- **Environment Variables**: Support environment-specific configurations using environment variables
+- **Dynamic Parameters**: Allow dynamic parameter values based on context
+- **Configuration Validation**: Validate configuration values before execution
+- **Versioned Configurations**: Maintain version history for configuration changes
+
+#### Example Configuration Structure
+```json
+{
+  "prompt_config": {
+    "common": {
+      "language": "English",
+      "output_dir": "outputs",
+      "timeout": 300
+    },
+    "prompt1": {
+      "md_template": "templates/md-template.md",
+      "rule_extractor": "scripts/rule-extractor.py"
+    },
+    "prompt3": {
+      "skill_templates": "templates/skill-templates/",
+      "user_types": ["BA", "QA Lead", "Automation Tester", "Mixed"]
+    }
+  }
+}
+```
+
+### 2. Monitoring and Alerting
+
+#### Enhanced Monitoring
+- **Real-time Monitoring**: Implement real-time monitoring of prompt execution
+- **Performance Metrics**: Track execution time, memory usage, and resource utilization
+- **Error Tracking**: Monitor and log errors during execution
+- **Dependency Monitoring**: Track dependencies between prompts and components
+- **Usage Analytics**: Collect usage data for optimization
+
+#### Alerting System
+- **Threshold-based Alerts**: Set up alerts for performance and error thresholds
+- **Notification Channels**: Support multiple notification channels (email, Slack, etc.)
+- **Escalation Procedures**: Define escalation procedures for critical issues
+- **Alert Aggregation**: Aggregate similar alerts to reduce noise
+- **Automated Remediation**: Implement automated remediation for common issues
+
+### 3. Security Considerations
+
+#### Security Best Practices
+- **Input Validation**: Validate all inputs to prevent injection attacks
+- **Access Control**: Implement role-based access control for prompts and resources
+- **Data Encryption**: Encrypt sensitive data at rest and in transit
+- **Audit Logging**: Maintain comprehensive audit logs for all operations
+- **Vulnerability Scanning**: Regularly scan for security vulnerabilities
+
+#### Secure Implementation
+- **Least Privilege**: Run prompts with minimal required permissions
+- **Isolation**: Isolate prompt execution environments
+- **Dependency Security**: Verify security of third-party dependencies
+- **Secure Configuration**: Use secure default configurations
+- **Regular Security Updates**: Keep all components updated with security patches
+
+---
+
+# Table of Contents
+
+## I. Knowledge Base Foundation Prompts (MD Generation + Framework Setup)
+- [Prompt 1 (Structured MD Knowledge Base Generation with Paragraph IDs)](#prompt-1-structured-md-knowledge-base-generation-with-paragraph-ids)
+- [Prompt 2 (Framework Structure Creation and Configuration)](#prompt-2-framework-structure-creation-and-configuration)
+
+## II. GitHub Copilot Skills Development Prompts (Including BDD Association + Reference + Script)
+- [Prompt 3 (Copilot Skill Modular Generation + BDD Association + Structured Reference + Script Pre-embedding)](#prompt-3-copilot-skill-modular-generation--bdd-association--structured-reference--script-pre-embedding)
+- [Prompt 4 (Copilot Skill Index + Relationship + Reference/Script Management + Usage Guidelines)](#prompt-4-copilot-skill-index--relationship--reference-script-management--usage-guidelines)
+- [Prompt 5 (Skill Automation Script Generation + Git/Verification Linkage)](#prompt-5-skill-automation-script-generation--git-verification-linkage)
+
+## III. Test Case and BDD Generation Prompts (Including Relationship + Reference)
+- [Prompt 6 (Structured Iterative Test Case Generation + Relationship + Reference Pre-embedding)](#prompt-6-structured-iterative-test-case-generation--relationship--reference-pre-embedding)
+- [Prompt 7 (BDD/Behave Scenario Generation + Multi-dimensional Relationships + Reference Bidirectional Traceability)](#prompt-7-bdd-behave-scenario-generation--multi-dimensional-relationships--reference-bidirectional-traceability)
+
+## IV. Knowledge Base Synchronization Update Prompts (Including Reference/Script Synchronization)
+- [Prompt 8 (New Business Document Addition - Knowledge Base Incremental Update Process Generation + Reference/Script Synchronization)](#prompt-8-new-business-document-addition---knowledge-base-incremental-update-process-generation--reference-script-synchronization)
+- [Prompt 9 (Existing Document Update - Knowledge Base Incremental Update Process Generation + Reference/Script Synchronization)](#prompt-9-existing-document-update---knowledge-base-incremental-update-process-generation--reference-script-synchronization)
+
+## V. Governance and Quality Assurance Prompts
+- [Prompt 10 (Quality Gate + Human Review + Feedback System + Confidence Level Calculation)](#prompt-10-quality-gate--human-review--feedback-system--confidence-level-calculation)
+- [Prompt 11 (Comprehensive Test Coverage Analysis + Gap Identification)](#prompt-11-comprehensive-test-coverage-analysis--gap-identification)
+- [Prompt 12 (Multi-model Verification Configuration + Execution + Result Analysis)](#prompt-12-multi-model-verification-configuration--execution--result-analysis)
+- [Prompt 13 (Change Impact Analysis + Risk Assessment)](#prompt-13-change-impact-analysis--risk-assessment)
+- [Prompt 14 (Performance Optimization + Resource Allocation)](#prompt-14-performance-optimization--resource-allocation)
+- [Prompt 15 (Project Health Monitoring + Status Reporting)](#prompt-15-project-health-monitoring--status-reporting)
+
+---
+
 ## Global Rules for Prompt Management
 
 ### Rule 1: Prompt Set Integrity
@@ -34,6 +212,10 @@
 Generate structured Markdown knowledge base files with paragraph IDs and establish the foundational framework structure for downstream Copilot Skills development.
 
 ### Prompt 1 (Structured MD Knowledge Base Generation with Paragraph IDs)
+**Version**: 1.2.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ```
 ### Instructions
 Based on the provided business documentation [Initial Margin Calculation Guide HKv14], generate **structured Markdown files with unique paragraph IDs** for Git-based knowledge base management, meeting the following requirements:
@@ -52,18 +234,62 @@ Based on the provided business documentation [Initial Margin Calculation Guide H
    - Maintain original business rule accuracy and completeness
    - Add metadata section with document version, last updated date, and responsible person
 
-4. **File Organization**:
+4. **Atomic Rule Extraction**:
+   - **Atomicity**: Each rule should represent a single, indivisible business requirement
+   - **Unique Rule IDs**: Assign unique rule identifiers following the format: `RULE-{DOMAIN}-{SEQUENCE}` (e.g., `RULE-IM-001`)
+   - **Rule Structure**: Each rule must include:
+     - Rule ID
+     - Rule statement (clear, concise, single requirement)
+     - Applicable conditions
+     - Exception cases (if any)
+     - Cross-references to related rules or paragraphs
+     - Coverage status (covered/not covered)
+
+5. **Python Script Generation for Rule Conversion**:
+   - Generate a Python script `scripts/rule-extractor.py` that:
+     - Parses MD files with structured IDs
+     - Extracts atomic rules
+     - Validates rule atomicity and uniqueness
+     - Converts rules to JSON format
+     - Generates coverage reports
+     - Supports incremental updates
+   - Generate a JSON schema `config/rule-schema.json` defining the rule structure
+   - Generate sample output JSON file `docs/rules/atomic-rules.json` as reference
+
+6. **Rule Re-verification Mechanism**:
+   - **Trigger Conditions**: When either `scripts/rule-extractor.py` or `config/rule-schema.json` is updated, trigger automatic re-verification of all generated rules
+   - **Re-verification Process**:
+     - Parse all MD files with updated script
+     - Validate rules against updated schema
+     - Compare new rules with existing rules in `docs/rules/atomic-rules.json`
+     - Identify changes: added rules, modified rules, deleted rules
+     - Generate re-verification report highlighting differences
+   - **Human Review and Feedback Application**:
+     - Apply the same human review and feedback process to re-verification results
+     - Generate review files: `governance/reviews/prompt1-rereview.md`, `governance/reviews/prompt1-reconfidence.md`, `governance/reviews/prompt1-refailure-analysis.md`
+     - Calculate confidence level based on re-verification feedback
+     - Provide detailed failure analysis for rules that fail re-verification
+   - **Approval Workflow**:
+     - Re-verification results must go through Initial → Peer Review → Final Approval stages
+     - Only approved re-verification results can update `docs/rules/atomic-rules.json`
+     - Maintain version history for all re-verification runs
+   - **Rollback Capability**:
+     - If re-verification fails, rollback to previous version of rules
+     - Maintain backup of previous rule versions
+     - Document rollback reasons and recovery steps
+
+7. **File Organization**:
    - One MD file per business module
    - Consistent file naming: `{module-name}.md` (e.g., `risk-parameters.md`)
    - Store in `docs/source-files/` directory
 
-5. **Quality Assurance**:
+8. **Quality Assurance**:
    - Verify all business rules are accurately captured
    - Ensure no information loss during modularization
    - Validate structured ID uniqueness across all files
    - Proofread for grammar, spelling, and formatting consistency
 
-6. **Human Review and Feedback System**: Implement a structured review process for generated MD files:
+9. **Human Review and Feedback System**: Implement a structured review process for generated MD files:
    - **Review Workflow**: Define a multi-stage review process (Initial → Peer Review → Final Approval)
    - **Feedback Collection**: Collect structured feedback on MD file quality, rule alignment, and completeness
    - **Confidence Level Calculation**: Calculate confidence level based on review feedback and rule alignment
@@ -88,6 +314,10 @@ Business Documentation: [Initial Margin Calculation Guide HKv14]
 - **Index File**: Generate an index file `docs/source-files/INDEX.md` listing all modules with their structured ID ranges
 - **Cross-Reference Map**: Generate a cross-reference map showing relationships between paragraphs
 - **Metadata**: Include version, timestamp, and responsible person in each MD file
+- **Atomic Rule Generation**: Extract and document atomic rules in each MD file with unique rule IDs
+- **Python Script Generation**: Generate `scripts/rule-extractor.py` for rule conversion
+- **JSON Schema Generation**: Generate `config/rule-schema.json` defining the rule structure
+- **Sample JSON Output**: Generate `docs/rules/atomic-rules.json` as reference
 - **Incremental Update Support**: Implement incremental update functionality:
   - **Partial Update**: Allow updating only modified sections instead of regenerating all
   - **Diff Detection**: Automatically detect changes in source documents
@@ -107,14 +337,14 @@ Business Documentation: [Initial Margin Calculation Guide HKv14]
 - **Performance Metrics Collection**: Include comprehensive performance metrics in PROMPT1-OUTPUT.md:
   - **Execution Time Metrics**: Start time, end time, total execution time, time per module
   - **Resource Usage Metrics**: Memory usage, CPU usage, disk I/O
-  - **Quality Metrics**: Number of paragraphs generated, ID uniqueness score, cross-reference completeness
+  - **Quality Metrics**: Number of paragraphs generated, ID uniqueness score, cross-reference completeness, rule extraction quality
   - **Error Metrics**: Number of errors, error types, error recovery success rate
   - **Update Metrics**: Number of sections updated, update time, change detection accuracy
   - **Parallel Metrics**: Number of parallel tasks, parallel execution time, resource utilization
   - **Recovery Metrics**: Number of recovery attempts, recovery success rate, recovery time
 - **Proofreading Requirements**: Proofread all generated content to ensure correct grammar, spelling, formatting, and consistency
 - **README.md Synchronization**: If this update affects directory structure or file locations, update `README.md` accordingly
-- **Execution Instructions**: This prompt MUST include instructions to ACTUALLY CREATE MD files and directories if they don't exist, not just output plans
+- **Execution Instructions**: This prompt MUST include instructions to ACTUALLY CREATE MD files, scripts, and directories if they don't exist, not just output plans
 
 #### Verification Requirements (MANDATORY)
 - **Pre-Execution Verification**: Before generating MD files, verify:
@@ -130,6 +360,10 @@ Business Documentation: [Initial Margin Calculation Guide HKv14]
   - Process output file `PROMPT1-OUTPUT.md` is created in `docs/source-files/` directory
   - All metadata is correctly populated
   - README.md is updated if required by README.md Synchronization Rule
+  - Atomic rules are extracted with unique rule IDs
+  - Python script `scripts/rule-extractor.py` is generated
+  - JSON schema `config/rule-schema.json` is generated
+  - Sample JSON output `docs/rules/atomic-rules.json` is generated
 
 #### Change Management Requirements (MANDATORY)
 - **Impact Analysis**: Before generating MD files, document:
@@ -137,17 +371,21 @@ Business Documentation: [Initial Margin Calculation Guide HKv14]
   - How modularization affects existing documentation (if any)
   - Potential impact on downstream prompts (Prompt 2, 3, etc.)
   - Impact on cross-references and relationships
+  - Impact of atomic rule extraction on downstream processes
 - **Change Documentation**: In process output file, document:
   - List of all MD files generated with their structured ID ranges
   - Modularization strategy used
   - Any customizations applied to standard format
   - Creation timestamp and responsible person
   - Proofreading results and validation status
+  - Atomic rule extraction results and statistics
+  - Python script generation details
 - **Rollback Procedures**: Include instructions for:
   - Removing generated MD files if needed
   - Restoring previous state if generation fails
   - Reverting README.md changes if applicable
   - Reverting process output files to previous versions
+  - Removing generated scripts and JSON files if needed
 
 #### Prompt Dependencies (MANDATORY)
 - **Input Sources**:
@@ -191,6 +429,10 @@ Business Documentation: [Initial Margin Calculation Guide HKv14]
 ```
 
 ### Prompt 2 (Framework Structure Creation and Configuration)
+**Version**: 1.2.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ```
 ### Instructions
 Based on the MD files generated by Prompt 1, create the **foundational framework structure** for the Git-based knowledge base and Copilot Skills development environment, meeting the following requirements:
@@ -422,6 +664,10 @@ graph TD
 Based on the structured MD knowledge base (including upstream and downstream), generate **modular, traceable (Reference), pre-embedded BDD relationship, automation-supporting (Script)** GitHub Copilot Skills, ensuring that the relationship between Skills and main/upstream/downstream rules and BDD scenarios can be updated in real time, and have automated synchronization/verification capabilities.
 
 ### Prompt 3 (Copilot Skill Modular Generation + BDD Association + Structured Reference + Script Pre-embedding)
+**Version**: 1.2.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ```
 ### Instructions
 Based on the following [Initial Margin Calculation Guide HKv14] MD files (use only this content), develop **modular, traceable, pre-embedded BDD relationship, automation Script-supporting** Skills for GitHub Copilot, meeting the following requirements:
@@ -505,10 +751,10 @@ Based on the following [Initial Margin Calculation Guide HKv14] MD files (use on
 This prompt supports multiple input sources for Skill generation:
 
 **Source 1: Structured MD Files (Primary)**
-- Use structured MD files with paragraph IDs as primary input
-- Format: MD files with structured paragraph IDs (e.g., DC-IMRPF-001, MRCC-HVaR-001)
+- Use structured MD files with paragraph IDs and atomic rules as primary input
+- Format: MD files with structured paragraph IDs (e.g., DC-IMRPF-001, MRCC-HVaR-001) and atomic rules with unique rule IDs (e.g., RULE-IM-001)
 - Location: `docs/source-files/` directory
-- Processing: Extract rule scenarios from structured IDs and generate Skills
+- Processing: Extract rule scenarios from structured IDs and atomic rules, then generate Skills
 
 **Source 2: Natural Language Documents (Conversion Required)**
 - Accept natural language documents from different user types
@@ -634,7 +880,7 @@ Structure Modifications:
    - **User Type Target**: [Type A/B/C/D] - Indicates which user type this Skill primarily serves
    - **Skill Source**: [Source 1/2/3/4] - Indicates the input source for this Skill
    - **Structured Reference (Required)**:
-     + **Rule_Source**: {MD file full path} | {rule paragraph structured ID} | {rule version} | {original document storage path}
+     + **Rule_Source**: {MD file full path} | {rule paragraph structured ID} | {atomic rule ID} | {rule version} | {original document storage path}
      + **Test_Reference**: {BDD test case ID to be associated} | {feature file path to be associated}
      + **Verify_Reference**: {multi-model verification configuration ID} | {manual audit record path (reserved)}
      + **Update_History**: {creation time} | {creator} | {associated Git Commit ID (reserved)} | {import source (if applicable)}
@@ -1018,6 +1264,10 @@ Structure Modifications:
 ```
 
 ### Prompt 4 (Copilot Skill Index + Relationship + Reference/Script Management + Usage Guidelines)
+**Version**: 1.2.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ```
 ### Instructions
 Based on the generated [Initial Margin Calculation Guide HKv14] Copilot Skill files, generate **Skill supporting documents supporting BDD relationship real-time updates, Reference verification, and Script execution**, meeting the following requirements:
@@ -1166,6 +1416,10 @@ Based on the generated [Initial Margin Calculation Guide HKv14] Copilot Skill fi
 ```
 
 ### Prompt 5 (Skill Automation Script Generation + Git/Verification Linkage)
+**Version**: 1.2.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ```
 ### Instructions
 Based on the generated [Initial Margin Calculation Guide HKv14] Copilot Skill files, generate **automation Scripts (Python) + M365 natural language operation guidance + execution result verification table**, meeting the following requirements:
@@ -1327,6 +1581,10 @@ Based on the generated [Initial Margin Calculation Guide HKv14] Copilot Skill fi
 Based on the MD knowledge base/Copilot Skill, generate **strictly rule-aligned, pre-embedded multi-dimensional relationships, Reference verification-supporting** structured test cases/BDD (Behave) scenarios, ensuring that BDD and requirements, knowledge base, and Skill References are bidirectionally traceable.
 
 ### Prompt 6 (Structured Iterative Test Case Generation + Relationship + Reference Pre-embedding)
+**Version**: 1.2.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ```
 ### Instructions
 Based on the following [Initial Margin Calculation Guide HKv14] rule points (use only this content), generate **verifiable, traceable, iterative, pre-embedded multi-dimensional relationships + Reference verification slots** structured test cases, meeting the following requirements:
@@ -1336,8 +1594,8 @@ Based on the following [Initial Margin Calculation Guide HKv14] rule points (use
    - Test Scenario: Clear rule verification point + belonging global process node + rule version.
    - Preconditions: Environmental/configuration requirements applicable to the rule.
    - Test Steps: Executable operation sequence, unambiguous.
-   - Expected Results: Rule-based precise assertions (marking paragraph ID in Rule_Source).
-   - Rule Basis: Associated MD file full path + paragraph structured ID + rule version (consistent with Skill's Rule_Source).
+   - Expected Results: Rule-based precise assertions (marking paragraph ID and atomic rule ID in Rule_Source).
+   - Rule Basis: Associated MD file full path + paragraph structured ID + atomic rule ID + rule version (consistent with Skill's Rule_Source).
    - Reference Verification Slot: Mark corresponding Skill ID + "Reference Consistency" verification requirement (whether it matches Skill's Test_Reference).
    - Relationships: Reserve "requirement ID/Copilot Skill ID/BDD scenario ID" association slots, supporting real-time updates.
    - Update Marking: Reserve blank lines for subsequent rule modifications and relationship updates.
@@ -1345,7 +1603,46 @@ Based on the following [Initial Margin Calculation Guide HKv14] rule points (use
    - Confidence Level: Initial confidence level set to "Medium" (1-5 scale)
    - Review Feedback: Reserve slot for review comments and feedback
 3. All parameters use only valid values defined by the knowledge base, with no undefined values introduced.
-4. **Import/Export Mechanism**: Implement comprehensive import/export functionality for test cases and BDD scenarios:
+4. **Role-based Test Plan Generation**:
+   - **Test Plan Structure**: Generate comprehensive test plans based on user roles (Type A/B/C/D):
+     - **Type A (BA) Test Plan**: Focuses on business rule verification, process flow validation, and requirement coverage
+     - **Type B (QA Lead) Test Plan**: Focuses on comprehensive test coverage, compliance verification, and risk-based testing
+     - **Type C (Automation Tester) Test Plan**: Focuses on automation feasibility, boundary conditions, and test data requirements
+     - **Type D (Mixed/General) Test Plan**: Balanced coverage across all aspects
+   - **Test Plan Components**:
+     - Test scope and objectives
+     - Test environment requirements
+     - Test data requirements
+     - Test execution sequence
+     - Success criteria and pass/fail metrics
+     - Risk assessment and mitigation strategies
+     - Resource allocation and timeline
+   - **Test Plan Storage**:
+     - Store test plans in `tests/test-plans/` directory
+     - Naming convention: `test-plan-{role}-{timestamp}.md`
+     - Include version control and change tracking
+5. **Human Review and Feedback Approval Process**:
+   - **Review Workflow**: Implement a multi-stage review process for test plans:
+     - **Initial Review**: Technical feasibility and rule alignment check
+     - **Peer Review**: Cross-functional review by relevant stakeholders
+     - **Final Approval**: Sign-off by QA Lead and Business Lead
+   - **Review Artifacts**:
+     - `governance/reviews/test-plan-review-{role}.md` - Review results and feedback
+     - `governance/reviews/test-plan-confidence-{role}.md` - Confidence level assessment
+     - `governance/reviews/test-plan-failure-analysis-{role}.md` - Failure analysis report
+   - **Approval Criteria**:
+     - Test plan aligns with business rules and requirements
+     - Test coverage is comprehensive and risk-based
+     - Test environment and data requirements are realistic
+     - Success criteria are clearly defined and measurable
+     - Only approved test plans can proceed to BDD generation
+6. **Test Plan Change Management**:
+   - **Change Detection**: Monitor changes to test plans and their impact on existing BDD scenarios
+   - **Impact Analysis**: Assess the impact of test plan changes on related BDD features and step definitions
+   - **Verification Mechanism**: When test plans change, verify all related BDD scenarios and step definitions for consistency
+   - **Change Documentation**: Document all test plan changes and their impact in `governance/change-history.md`
+   - **Rollback Procedure**: If test plan changes cause BDD inconsistencies, rollback to previous version and document reasons
+7. **Import/Export Mechanism**: Implement comprehensive import/export functionality for test cases and BDD scenarios:
    - **Test Case Export Format**: Define standard export format for test cases (JSON/YAML/Markdown)
    - **BDD Scenario Export Format**: Define standard export format for BDD scenarios (Gherkin/Markdown)
    - **Export Metadata**: Include version information, export timestamp, and responsible person
@@ -1353,27 +1650,27 @@ Based on the following [Initial Margin Calculation Guide HKv14] rule points (use
    - **Import Mapping**: Map imported test cases to existing Skills and modules
    - **Import Conflict Resolution**: Handle duplicate test case IDs and conflicting references
    - **Export Templates**: Provide predefined export templates for different user types
-5. **User Type Predefined Templates**: Include predefined templates for different user types:
+8. **User Type Predefined Templates**: Include predefined templates for different user types:
    - **Type A (BA)**: Business-focused test case templates with business rule verification
    - **Type B (QA Lead)**: Quality-focused test case templates with test case management
    - **Type C (Automation Tester)**: Automation-focused test case templates with BDD integration
    - **Type D (Mixed/General)**: Universal test case templates with balanced coverage
-6. **User BDD Template Import and Learning**: Support importing and learning from user-provided BDD templates as standards or references:
+9. **User BDD Template Import and Learning**: Support importing and learning from user-provided BDD templates as standards or references:
    - **Template Import**: Import user BDD templates from `tests/bdd/templates/user/` directory, supporting formats: .feature, .md, .json, .yaml
    - **Template Learning**: Automatically analyze template structure, language style, content patterns, and relationship patterns; generate template profile (JSON) and style guide (Markdown)
    - **Template Application**: Apply learned templates to test case generation, ensuring generated content matches user style and conventions
    - **Template Validation**: Validate generated test cases against learned template standards
-7. **Difference Analysis and Change Tracking**: Track changes and analyze differences between user templates and generated content:
-   - **Change Detection**: Monitor requirement document changes; detect Added/Modified/Deleted/Moved content; calculate change severity and impact scope
-   - **Difference Analysis**: Compare user templates vs generated content; identify structure, style, and content gaps; generate difference reports
-   - **Change Tracking**: Record all changes in `governance/change-history.md`; track impact across Skills/Test Cases/BDD; maintain change history with metadata
-   - **Version Comparison**: Support version-to-version comparison; generate diff reports in HTML and Markdown formats
-8. **Human Review and Feedback System**: Implement a structured review process for test cases:
-   - **Review Workflow**: Define a multi-stage review process (Initial → Peer Review → Final Approval)
-   - **Feedback Collection**: Collect structured feedback on test case quality, rule alignment, and completeness
-   - **Confidence Level Calculation**: Calculate confidence level based on review feedback and rule alignment
-   - **Failure Analysis**: Provide detailed analysis of why test cases fail or don't match requirements
-   - **Feedback Templates**: Provide standardized feedback templates for different review scenarios
+10. **Difference Analysis and Change Tracking**: Track changes and analyze differences between user templates and generated content:
+    - **Change Detection**: Monitor requirement document changes; detect Added/Modified/Deleted/Moved content; calculate change severity and impact scope
+    - **Difference Analysis**: Compare user templates vs generated content; identify structure, style, and content gaps; generate difference reports
+    - **Change Tracking**: Record all changes in `governance/change-history.md`; track impact across Skills/Test Cases/BDD; maintain change history with metadata
+    - **Version Comparison**: Support version-to-version comparison; generate diff reports in HTML and Markdown formats
+11. **Human Review and Feedback System**: Implement a structured review process for test cases:
+    - **Review Workflow**: Define a multi-stage review process (Initial → Peer Review → Final Approval)
+    - **Feedback Collection**: Collect structured feedback on test case quality, rule alignment, and completeness
+    - **Confidence Level Calculation**: Calculate confidence level based on review feedback and rule alignment
+    - **Failure Analysis**: Provide detailed analysis of why test cases fail or don't match requirements
+    - **Feedback Templates**: Provide standardized feedback templates for different review scenarios
 
 ### Input (Replace with specific rule points)
 Rule Points: [Paste specific rule point content (including structured paragraph ID)]
@@ -1384,11 +1681,23 @@ Rule Basis: [Paste associated MD file path + paragraph structured ID + rule vers
 - **Process File Naming**: Generate a process output file named `PROMPT6-OUTPUT.md` containing execution logs and results.
 - **Process File Storage**: Store `PROMPT6-OUTPUT.md` in `governance/` directory.
 - **Test Case Generation**: Output tabular test cases (including positive/negative/exception scenarios, with global process nodes and Reference verification slots).
+- **Role-based Test Plan Generation**: Generate comprehensive test plans for each user role (Type A/B/C/D):
+  - Store test plans in `tests/test-plans/` directory
+  - Include all required components: scope, objectives, environment requirements, data requirements, execution sequence, success criteria, risk assessment, resource allocation
+  - Naming convention: `test-plan-{role}-{timestamp}.md`
+- **Human Review and Feedback Approval Artifacts**:
+  - Generate review files for each role: `governance/reviews/test-plan-review-{role}.md`, `governance/reviews/test-plan-confidence-{role}.md`, `governance/reviews/test-plan-failure-analysis-{role}.md`
+  - Include approval status tracking and sign-off sections
+- **Test Plan Change Management**:
+  - Generate change detection and impact analysis reports
+  - Create verification scripts for BDD consistency checks
+  - Document change history in `governance/change-history.md`
 - **Parameter Validation**: Test case parameters use only valid values defined by the knowledge base.
 - **Proofreading Requirements**: Proofread all generated content to ensure correct grammar, spelling, formatting, and consistency with the original rule points.
 - **README.md Synchronization**: If this update affects directory structure or file locations, update `README.md` accordingly.
-- **Execution Instructions**: This prompt MUST include instructions to ACTUALLY CREATE test case files and directories if they don't exist, not just output plans.
+- **Execution Instructions**: This prompt MUST include instructions to ACTUALLY CREATE test case files, test plans, and directories if they don't exist, not just output plans.
 - **Directory Creation**: MUST create the following directories if they don't exist:
+  - `tests/test-plans/` - for role-based test plans
   - `tests/bdd/templates/system/` - for system predefined BDD templates
   - `tests/bdd/templates/user/` - for user imported BDD templates
   - `tests/bdd/learned/` - for learned template configurations
@@ -1407,28 +1716,44 @@ Rule Basis: [Paste associated MD file path + paragraph structured ID + rule vers
   - `governance/reviews/feedback-template.md` - Feedback collection template
   - `governance/reviews/confidence-assessment.md` - Confidence level assessment guide
   - `governance/reviews/failure-analysis-template.md` - Failure analysis template
+  - `governance/reviews/test-plan-review-template.md` - Test plan review template
 ```
 
 ### Prompt 7 (BDD/Behave Scenario Generation + Multi-dimensional Relationships + Reference Bidirectional Traceability)
+**Version**: 1.2.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ```
 ### Instructions
-Based on the generated structured test cases, generate **strictly rule-aligned, executable, iterative, Reference bidirectional traceability-supporting** BDD (Behave) scenarios, and build a **BDD and requirement/knowledge base rule/Copilot Skills relationship real-time update system**, meeting the following requirements:
-1. BDD scenarios strictly align with test cases and rule points, with no scenario designs outside rules, using Gherkin syntax (Given/When/Then), and marking the belonging **global process nodes**.
-2. BDD scenarios use a unified reusable template, with a template structure containing **multi-dimensional relationships + Reference verification slots** for easy real-time updates. The structure is as follows:
+Based on the **approved role-based test plans** and generated structured test cases, generate **strictly rule-aligned, executable, iterative, Reference bidirectional traceability-supporting** BDD (Behave) scenarios, and build a **BDD and requirement/knowledge base rule/Copilot Skills relationship real-time update system**, meeting the following requirements:
+1. **Test Plan Approval Check**: Verify that test plans have been approved before generating BDD scenarios:
+   - Only use test plans with "Final Approval" status
+   - Validate test plan approval signatures from QA Lead and Business Lead
+   - Reject generation if test plans are not approved
+2. BDD scenarios strictly align with approved test plans, test cases, and rule points, with no scenario designs outside rules, using Gherkin syntax (Given/When/Then), and marking the belonging **global process nodes**.
+3. BDD scenarios use a unified reusable template, with a template structure containing **multi-dimensional relationships + Reference verification slots** for easy real-time updates. The structure is as follows:
    - Feature ID: FT-[module abbreviation]-[number] (e.g., FT-IM-CALC-001, FT-RISK-PARAM-001), avoiding duplication.
    - Feature Description: Core rule verification point + belonging global process node + rule version.
    - Background: Environmental/configuration requirements applicable to the rule.
    - Scenario/Scenario Outline: Executable operation sequence, unambiguous.
-   - Examples: Rule-based precise assertions (marking paragraph ID in Rule_Source).
-   - Rule Basis: Associated MD file full path + paragraph structured ID + rule version (consistent with Skill's Rule_Source).
+   - Examples: Rule-based precise assertions (marking paragraph ID and atomic rule ID in Rule_Source).
+   - Rule Basis: Associated MD file full path + paragraph structured ID + atomic rule ID + rule version (consistent with Skill's Rule_Source).
+   - Test Plan Reference: Associated approved test plan ID and version
    - Reference Verification Slot: Mark corresponding Skill ID + "Reference Consistency" verification requirement (whether it matches Skill's Test_Reference).
    - Relationships: Reserve "requirement ID/Copilot Skill ID/BDD scenario ID" association slots, supporting real-time updates.
    - Update Marking: Reserve blank lines for subsequent rule modifications and relationship updates.
    - Review Status: Initial status set to "Pending Review"
    - Confidence Level: Initial confidence level set to "Medium" (1-5 scale)
    - Review Feedback: Reserve slot for review comments and feedback
-3. All parameters use only valid values defined by the knowledge base, with no undefined values introduced.
-4. **Human Review and Feedback System**: Implement a structured review process for BDD scenarios:
+4. All parameters use only valid values defined by the knowledge base, with no undefined values introduced.
+5. **Test Plan Change Verification**: When test plans change, verify and update related BDD scenarios and step definitions:
+   - **Change Detection**: Monitor test plan changes and identify affected BDD scenarios
+   - **Impact Analysis**: Assess the impact of test plan changes on BDD features and step definitions
+   - **Consistency Verification**: Ensure BDD scenarios remain consistent with updated test plans
+   - **Automated Updates**: Update BDD scenarios to reflect test plan changes
+   - **Validation**: Validate updated BDD scenarios against new test plan requirements
+6. **Human Review and Feedback System**: Implement a structured review process for BDD scenarios:
    - **Review Workflow**: Define a multi-stage review process (Initial → Peer Review → Final Approval)
    - **Feedback Collection**: Collect structured feedback on BDD scenario quality, rule alignment, and executable
    - **Confidence Level Calculation**: Calculate confidence level based on review feedback, rule alignment, and executable
@@ -1441,6 +1766,15 @@ Test Cases: [Paste specific test case content (including structured paragraph ID
 Rule Basis: [Paste associated MD file path + paragraph structured ID + rule version]
 
 ### Output Requirements
+- **Test Plan Approval Check**: Verify test plan approval status before generating BDD scenarios:
+  - Check for "Final Approval" status in test plan review files
+  - Validate approval signatures from QA Lead and Business Lead
+  - Document approval verification results in output file
+- **Test Plan Change Verification**: Implement verification mechanism for BDD scenarios when test plans change:
+  - Generate change detection reports for test plan changes
+  - Create impact analysis documents for affected BDD scenarios
+  - Develop consistency verification scripts for BDD-step definition alignment
+  - Document verification results in `governance/change-history.md`
 - Output .feature files (Gherkin syntax, English, marking test case ID/rule version/Rule_Source paragraph ID), stored in tests/bdd/features directory.
 - Output Python Step Definitions under steps/ directory (including comments/modification slots/Reference verification埋点).
 - Output behave.ini configuration file + **tests/bdd-relation-manager.md** (relationship real-time update management file, including Reference bidirectional consistency column).
@@ -1448,6 +1782,7 @@ Rule Basis: [Paste associated MD file path + paragraph structured ID + rule vers
 - **Directory Creation**: MUST create the following directories and files if they don't exist:
   - `tests/bdd/features/` - for .feature files
   - `tests/bdd/steps/` - for step definition files
+  - `tests/bdd/verification/` - for BDD verification scripts
   - `tests/bdd/templates/system/` - for system predefined BDD templates
   - `tests/bdd/templates/user/` - for user imported BDD templates
   - `tests/bdd/learned/` - for learned template configurations
@@ -1469,6 +1804,7 @@ Rule Basis: [Paste associated MD file path + paragraph structured ID + rule vers
   - `governance/reviews/feedback-template.md` - Feedback collection template (shared with Prompt 6)
   - `governance/reviews/confidence-assessment.md` - Confidence level assessment guide (shared with Prompt 6)
   - `governance/reviews/failure-analysis-template.md` - Failure analysis template (shared with Prompt 6)
+  - `governance/reviews/test-plan-change-verification-template.md` - Test plan change verification template
 - **Confidence Level Integration**: Include confidence level tracking in BDD relationship manager and change history
 - **Failure Analysis Reports**: Generate failure analysis reports for scenarios that don't match requirements
 ```
@@ -1481,6 +1817,10 @@ Rule Basis: [Paste associated MD file path + paragraph structured ID + rule vers
 When business rules are updated (new documents added/existing documents modified), automatically generate synchronization update processes to ensure consistency between MD rules/Copilot Skills/test cases/BDD and Reference/Script.
 
 ### Prompt 8 (New Business Document Addition - Knowledge Base Incremental Update Process Generation + Reference/Script Synchronization)
+**Version**: 1.2.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ```
 ### Instructions
 Based on the current [Initial Margin Calculation Guide HKv14] Git structured knowledge base framework, generate a knowledge base synchronization update process for **adding new business documents**, with the core requirement of "incremental addition, relationship/Reference/Script real-time synchronization, no associated erroneous modifications", meeting the following requirements:
@@ -1524,6 +1864,10 @@ Existing Knowledge Base Structure: [Paste existing MD file list + Skill list + t
 ```
 
 ### Prompt 9 (Update Existing Business Document - Knowledge Base Synchronization Update Process Generation + Reference/Script Synchronization)
+**Version**: 1.2.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ```
 ### Instructions
 Based on the current [Initial Margin Calculation Guide HKv14] Git structured knowledge base framework, generate a knowledge base synchronization update process for **updating existing business documents**, with the core requirement of "incremental modification, relationship/Reference/Script real-time synchronization, no associated erroneous modifications", meeting the following requirements:
@@ -1568,6 +1912,10 @@ Existing Knowledge Base Structure: [Paste existing MD file list + Skill list + t
 ```
 
 ### Prompt 10 (Test Execution and Results Validation + Coverage Analysis)
+**Version**: 1.2.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ```
 ### Instructions
 Based on the generated test cases and BDD scenarios, generate **comprehensive test execution plans, results validation framework, and coverage analysis reports**, meeting the following requirements:
@@ -1616,6 +1964,10 @@ BDD Scenarios: [Paste BDD scenario content]
 ```
 
 ### Prompt 11 (BDD Scenario Execution and Reporting + Automation Integration)
+**Version**: 1.2.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ```
 ### Instructions
 Based on the generated BDD scenarios, generate **BDD execution frameworks, automated test runners, and comprehensive execution reports**, meeting the following requirements:
@@ -1664,6 +2016,10 @@ Test Cases: [Paste test case content]
 ```
 
 ### Prompt 12 (Skill Validation and Quality Assurance + Governance)
+**Version**: 1.2.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ```
 ### Instructions
 Based on the generated Copilot Skills, generate **comprehensive skill validation frameworks, quality assurance processes, and governance mechanisms**, meeting the following requirements:
@@ -1711,6 +2067,10 @@ Skill Definitions: [Paste Skill definition content]
 ```
 
 ### Prompt 13 (Performance Monitoring and Optimization + Resource Management)
+**Version**: 1.2.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ```
 ### Instructions
 Based on the knowledge base framework, generate **comprehensive performance monitoring systems, optimization strategies, and resource management plans**, meeting the following requirements:
@@ -1759,6 +2119,10 @@ Performance Data: [Paste performance metrics data]
 ```
 
 ### Prompt 14 (Documentation Generation and Publishing + Knowledge Base Maintenance)
+**Version**: 1.2.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ```
 ### Instructions
 Based on the knowledge base content, generate **comprehensive documentation, publishing workflows, and knowledge base maintenance plans**, meeting the following requirements:
@@ -1806,6 +2170,10 @@ Knowledge Base Content: [Paste knowledge base content]
 ```
 
 ### Prompt 15 (Audit and Compliance + Risk Management)
+**Version**: 1.2.0
+**Last Updated**: 2026-03-18
+**Author**: System Administrator
+
 ```
 ### Instructions
 Based on the knowledge base framework, generate **comprehensive audit frameworks, compliance checklists, and risk management plans**, meeting the following requirements:
