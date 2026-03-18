@@ -220,6 +220,24 @@ Generate structured Markdown knowledge base files with paragraph IDs and establi
 ### Instructions
 Based on the provided business documentation [Initial Margin Calculation Guide HKv14], generate **structured Markdown files with unique paragraph IDs** for Git-based knowledge base management, meeting the following requirements:
 
+0. **Multi-Format to MD Conversion and Validation**:
+   - **Check Existing MD**: Before processing, check if a verbatim MD version exists at `docs/source-files/Initial Margin Calculation Guide HKv14.md`
+   - **Detect Source Format**: Identify the source document format (PDF, Word, Excel, Email, etc.)
+   - **Validation if Exists**: If MD exists, validate its match with the original document:
+     - Compare content completeness (word count, section count)
+     - Check formatting accuracy (tables, formulas, headings)
+     - Verify all content is included
+     - Calculate match confidence score (0-100%)
+   - **Conversion if Missing**: If MD doesn't exist or match confidence < 95%, convert the source document to verbatim MD:
+     - **PDF**: Extract text while preserving formatting
+     - **Word**: Convert DOC/DOCX to MD with formatting
+     - **Excel**: Convert spreadsheets to MD tables
+     - **Email**: Convert email content to MD format
+     - **Other Formats**: Use appropriate conversion method
+     - Maintain original headings, tables, and structure
+     - Create `docs/source-files/Initial Margin Calculation Guide HKv14.md`
+     - Document conversion process and quality metrics
+
 1. **Document Modularization**: Split the complete guide into logical modules based on business domains (e.g., Introduction, Risk Parameters, Input Data, Calculation Methods, etc.).
 
 2. **Structured Paragraph IDs**: Assign unique structured IDs to each paragraph following the format:
@@ -352,6 +370,8 @@ Business Documentation: [Initial Margin Calculation Guide HKv14]
   - Target directories exist or can be created
   - Sufficient disk space is available
   - No existing files will be unintentionally overwritten
+  - Multi-format to MD conversion/validation is completed successfully
+  - Match confidence score is ≥ 95% if MD already exists
 - **Post-Execution Verification**: After generating MD files, verify:
   - All MD files are created with correct naming convention
   - Each file contains structured paragraph IDs
@@ -364,6 +384,8 @@ Business Documentation: [Initial Margin Calculation Guide HKv14]
   - Python script `scripts/rule-extractor.py` is generated
   - JSON schema `config/rule-schema.json` is generated
   - Sample JSON output `docs/rules/atomic-rules.json` is generated
+  - Verbatim MD file `docs/source-files/Initial Margin Calculation Guide HKv14.md` exists and is up-to-date
+  - Multi-format to MD conversion quality metrics are documented in PROMPT1-OUTPUT.md
 
 #### Change Management Requirements (MANDATORY)
 - **Impact Analysis**: Before generating MD files, document:
@@ -380,6 +402,10 @@ Business Documentation: [Initial Margin Calculation Guide HKv14]
   - Proofreading results and validation status
   - Atomic rule extraction results and statistics
   - Python script generation details
+  - Multi-format to MD conversion details (if performed)
+  - Source document format detected
+  - MD validation results (confidence score, issues found)
+  - Conversion quality metrics
 - **Rollback Procedures**: Include instructions for:
   - Removing generated MD files if needed
   - Restoring previous state if generation fails

@@ -1,6 +1,6 @@
 # Initial Margin Calculation Knowledge Base
 
-**Version**: 2.0.0
+**Version**: 2.1.0
 **Last Updated**: 2026-03-18
 **Author**: System Administrator
 
@@ -8,9 +8,10 @@
 
 This Git repository serves as a **traceable, verifiable, updatable, and scalable** test business knowledge common baseline for the Initial Margin Calculation Guide HKv14. It supports full lifecycle management of business rules, AI-assisted capabilities (GitHub Copilot Skills), test assets (BDD scenarios), and comprehensive quality assurance through LLM Checker System.
 
-### Enhanced Features (Version 2.0.0)
+### Enhanced Features (Version 2.1.0)
 
 This version includes significant enhancements:
+- **Multi-Format Support**: Added support for PDF, Word, Excel, Email, and other document formats
 - **Version Control**: Structured version management for all prompts and documentation
 - **Parameterized Configuration**: Flexible configuration management through JSON files
 - **Real-time Monitoring**: Comprehensive monitoring and alerting system
@@ -501,6 +502,7 @@ This repository implements a complete **15-prompt lifecycle management system**:
 | 1.0.5 | 2026-03-14 | Fixed module naming and file locations, updated all affected documentation | AI Assistant |
 | 1.0.6 | 2026-03-14 | Added LLM Checker System, updated README with complete documentation | AI Assistant |
 | 2.0.0 | 2026-03-18 | Major enhancement: Added version control, parameterized configuration, monitoring, security, best practices, and troubleshooting guide | System Administrator |
+| 2.1.0 | 2026-03-18 | Added multi-format support for PDF, Word, Excel, Email, and other document formats | System Administrator |
 
 ---
 
@@ -774,6 +776,6 @@ For questions or issues:
 
 ---
 
-**Last Updated**: 2026-03-14  
-**Knowledge Base Version**: 1.0.6  
+**Last Updated**: 2026-03-18  
+**Knowledge Base Version**: 2.1.0  
 **Status**: Active Development

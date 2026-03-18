@@ -1,6 +1,6 @@
 # Complete Prompt Workflow Flowchart
 
-**Version**: 2.0.0
+**Version**: 2.1.0
 **Last Updated**: 2026-03-18
 **Author**: System Administrator
 
@@ -13,7 +13,7 @@ This document illustrates the complete workflow of all 15 prompts plus the LLM C
 ```mermaid
 graph TB
     subgraph "Source Documents"
-        SRC[Initial Margin Calculation Guide HKv14.pdf]
+        SRC[Initial Margin Calculation Guide HKv14<br/>(PDF, Word, Excel, Email, etc.)]
     end
 
     subgraph "Configuration & Monitoring"
@@ -150,7 +150,7 @@ graph TB
 ```mermaid
 graph LR
     subgraph "Input"
-        PDF[Source PDF/Word]
+        PDF[Source Document<br/>(PDF, Word, Excel, Email, etc.)]
     end
 
     subgraph "Prompt 1"

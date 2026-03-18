@@ -106,7 +106,7 @@ Phase VI: P14 → P15
 **Purpose**: Convert source documents to structured MD files with paragraph IDs
 
 **Input**:
-- Source document: `Initial Margin Calculation Guide HKv14.pdf`
+- Source document: `Initial Margin Calculation Guide HKv14` (supports PDF, Word, Excel, Email, and other formats)
 
 **Steps**:
 1. Open `chat-prompt-en.md`
@@ -114,8 +114,10 @@ Phase VI: P14 → P15
 3. Replace input placeholder with actual document content
 4. Execute with LLM
 5. Review generated MD files
+6. Verify multi-format conversion (if source is not PDF)
 
 **Expected Output** (in `docs/source-files/`):
+- `Initial Margin Calculation Guide HKv14.md` (verbatim conversion from source format)
 - `Introduction-Overview.md`
 - `Risk-Parameter-File-Specification.md`
 - `Input-Data-Specification.md`
@@ -129,10 +131,12 @@ Phase VI: P14 → P15
 - `PROMPT1-OUTPUT.md`
 
 **Verification**:
-- Check all 10 MD files exist
+- Check all 11 MD files exist (including verbatim conversion)
 - Verify structured IDs follow format: `{DOMAIN}-{SUBDOMAIN}-{SEQUENCE}`
 - Confirm cross-references are valid
 - Review `PROMPT1-OUTPUT.md` for execution logs
+- Verify multi-format conversion quality (if source is not PDF)
+- Check match confidence score is ≥ 95%
 
 ---
 
