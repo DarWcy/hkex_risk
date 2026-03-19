@@ -8,9 +8,9 @@
 
 ## Overview
 
-This prompt set is designed for a 15-minute demonstration to C-level executives, showcasing the key capabilities of the knowledge base system. The demo focuses on the most impactful features that highlight business value and technical innovation.
+This prompt set is designed for a 19-minute demonstration to C-level executives, showcasing the key capabilities of the knowledge base system. The demo focuses on the most impactful features that highlight business value and technical innovation.
 
-## Demo Sequence (15 Minutes)
+## Demo Sequence (19 Minutes)
 
 ### 1. System Overview (2 minutes)
 - **Prompt 1**: Generate executive summary of the knowledge base system
@@ -36,6 +36,16 @@ This prompt set is designed for a 15-minute demonstration to C-level executives,
 - **Prompt 5**: Validate generated outputs using LLM Checker
 - **Input**: Generated test scenarios
 - **Output**: Validation report with confidence scores
+
+### 6. Checker Report Generation (2 minutes)
+- **Prompt 6**: Generate comprehensive checker report
+- **Input**: Validation report from Prompt 5
+- **Output**: Detailed checker report with findings and recommendations
+
+### 7. Executive Summary of Checker Report (2 minutes)
+- **Prompt 7**: Create executive summary of checker report
+- **Input**: Detailed checker report from Prompt 6
+- **Output**: Executive-friendly summary for C-level presentation
 
 ## Detailed Prompts
 
@@ -205,6 +215,97 @@ Feature: Margin Calculation Validation
 - Generate a validation report with recommendations
 ```
 
+### Prompt 6: Checker Report Generation
+
+```markdown
+# Checker Report Generator
+
+## Objective
+Generate a comprehensive checker report from the validation results.
+
+## Input
+```
+{"validation_report": {
+  "scenarios": [
+    {
+      "id": "SCENARIO-001",
+      "name": "Calculate equity initial margin",
+      "confidence": 0.98,
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "id": "SCENARIO-002",
+      "name": "Calculate options initial margin (10% rule)",
+      "confidence": 0.97,
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "id": "SCENARIO-003",
+      "name": "Calculate options initial margin ($5 per contract rule)",
+      "confidence": 0.96,
+      "status": "PASS",
+      "issues": []
+    }
+  ],
+  "summary": {
+    "total_scenarios": 3,
+    "passed": 3,
+    "failed": 0,
+    "average_confidence": 0.97
+  }
+}}
+```
+
+## Output Requirements
+- Generate a comprehensive checker report
+- Include detailed findings for each scenario
+- Add recommendations for improvement
+- Format as professional report
+- Include executive summary section
+- Add visual elements (tables, charts) where appropriate
+- Provide actionable insights
+```
+
+### Prompt 7: Executive Summary of Checker Report
+
+```markdown
+# Executive Summary of Checker Report
+
+## Objective
+Create an executive-friendly summary of the checker report for C-level presentation.
+
+## Input
+```
+# Checker Report: Margin Calculation Validation
+
+## Executive Summary
+This report validates the margin calculation rules and associated test scenarios. All 3 test scenarios passed with high confidence scores, demonstrating strong compliance with regulatory requirements.
+
+## Detailed Findings
+- **Scenario 1**: Equity initial margin calculation - PASS (98% confidence)
+- **Scenario 2**: Options initial margin (10% rule) - PASS (97% confidence)
+- **Scenario 3**: Options initial margin ($5 per contract rule) - PASS (96% confidence)
+
+## Recommendations
+1. Implement automated validation for all margin calculation rules
+2. Establish regular audit procedures for margin requirements
+3. Develop additional test scenarios for edge cases
+
+## Conclusion
+The margin calculation system demonstrates strong compliance with regulatory requirements and business rules. The high confidence scores indicate reliable rule extraction and test generation capabilities.
+```
+
+## Output Requirements
+- Maximum 150 words
+- Focus on key findings and business impact
+- Use executive-friendly language
+- Highlight compliance status and confidence scores
+- Include actionable recommendations
+- Emphasize business value and risk mitigation
+```
+
 ## Demo Preparation Checklist
 
 1. **Before Demo**
@@ -219,6 +320,8 @@ Feature: Margin Calculation Validation
    - Demonstrate Copilot Skill interaction (4 min)
    - Showcase BDD test generation (3 min)
    - Present validation results (3 min)
+   - Generate and display checker report (2 min)
+   - Present executive summary of checker report (2 min)
    - Leave time for Q&A
 
 3. **After Demo**
