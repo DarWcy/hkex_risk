@@ -21,31 +21,37 @@ This prompt set is designed for a 19-minute demonstration to C-level executives,
 - **Prompt 2**: Extract atomic rules from sample business document
 - **Input**: Sample business document snippet
 - **Output**: Structured atomic rules with unique identifiers
+- **File Operation**: Save extracted rules to `extracted_rules.json`
 
 ### 3. AI Capability Demonstration (4 minutes)
 - **Prompt 3**: Generate Copilot Skills from extracted rules
 - **Input**: Extracted atomic rules
 - **Output**: Ready-to-use Copilot Skills with natural language interaction
+- **File Operation**: Save Copilot Skill to `lme_market_data_assistant.md`
 
 ### 4. Test Automation (3 minutes)
 - **Prompt 4**: Generate BDD test scenarios
 - **Input**: Extracted atomic rules
 - **Output**: Gherkin-style BDD scenarios for test automation
+- **File Operation**: Save BDD scenarios to `lme_market_data_validation.feature`
 
 ### 5. Validation and Quality Assurance (3 minutes)
 - **Prompt 5**: Validate generated outputs using LLM Checker
 - **Input**: Generated test scenarios
 - **Output**: Validation report with confidence scores
+- **File Operation**: Save validation report to `validation_report.json`
 
 ### 6. Checker Report Generation (2 minutes)
 - **Prompt 6**: Generate comprehensive checker report
 - **Input**: Validation report from Prompt 5
 - **Output**: Detailed checker report with findings and recommendations
+- **File Operation**: Save checker report to `checker_report.md`
 
 ### 7. Executive Summary of Checker Report (2 minutes)
 - **Prompt 7**: Create executive summary of checker report
 - **Input**: Detailed checker report from Prompt 6
 - **Output**: Executive-friendly summary for C-level presentation
+- **File Operation**: Save executive summary to `executive_summary.md`
 
 ## Detailed Prompts
 
@@ -96,6 +102,7 @@ Sample Document Snippet:
 - Ensure each rule contains only one requirement
 - Format as JSON for easy integration
 - Include confidence scores for each rule
+- **File Writing**: Save the output to `extracted_rules.json`
 ```
 
 ### Prompt 3: Copilot Skill Generation
@@ -134,6 +141,7 @@ Generate a Copilot Skill from extracted business rules for natural language inte
 - Format as markdown for immediate use
 - Add skill trigger phrases
 - Include usage instructions
+- **File Writing**: Save the output to `lme_market_data_assistant.md`
 ```
 
 ### Prompt 4: BDD Test Scenario Generation
@@ -172,6 +180,7 @@ Generate Gherkin-style BDD test scenarios for margin calculation rules.
 - Add concrete examples with numbers
 - Format as .feature file content
 - Include scenario outlines for data-driven testing
+- **File Writing**: Save the output to `lme_market_data_validation.feature`
 ```
 
 ### Prompt 5: Output Validation
@@ -213,6 +222,7 @@ Feature: Margin Calculation Validation
 - Provide confidence scores for each scenario
 - Identify any potential issues or gaps
 - Generate a validation report with recommendations
+- **File Writing**: Save the output to `validation_report.json`
 ```
 
 ### Prompt 6: Checker Report Generation
@@ -266,6 +276,7 @@ Generate a comprehensive checker report from the validation results.
 - Include executive summary section
 - Add visual elements (tables, charts) where appropriate
 - Provide actionable insights
+- **File Writing**: Save the output to `checker_report.md`
 ```
 
 ### Prompt 7: Executive Summary of Checker Report
@@ -304,6 +315,7 @@ The margin calculation system demonstrates strong compliance with regulatory req
 - Highlight compliance status and confidence scores
 - Include actionable recommendations
 - Emphasize business value and risk mitigation
+- **File Writing**: Save the output to `executive_summary.md`
 ```
 
 ## Demo Preparation Checklist
@@ -344,3 +356,58 @@ The margin calculation system demonstrates strong compliance with regulatory req
 - Basic command line familiarity
 - Internet connection
 - Presentation software (optional for slides)
+
+## Run with File Output
+
+### File Writing Capabilities
+
+Each prompt in this demo sequence includes file writing instructions to persist generated content. The following files will be created during execution:
+
+| Step | Prompt | Output File | Description |
+|------|--------|-------------|-------------|
+| 2 | Business Rule Extraction | `extracted_rules.json` | Structured atomic rules with confidence scores |
+| 3 | Copilot Skill Generation | `lme_market_data_assistant.md` | Ready-to-use Copilot Skill documentation |
+| 4 | BDD Test Generation | `lme_market_data_validation.feature` | Gherkin-style test scenarios |
+| 5 | Validation | `validation_report.json` | Validation results with confidence scores |
+| 6 | Checker Report | `checker_report.md` | Comprehensive checker report |
+| 7 | Executive Summary | `executive_summary.md` | Executive-friendly summary |
+
+### Execution Commands
+
+To run the modified prompts with file writing capabilities:
+
+```bash
+# Step 2: Extract rules and save to file
+# The LLM will generate rules and write to extracted_rules.json
+
+# Step 3: Generate Copilot Skill and save to file
+# The LLM will generate skill and write to lme_market_data_assistant.md
+
+# Step 4: Generate BDD scenarios and save to file
+# The LLM will generate scenarios and write to lme_market_data_validation.feature
+
+# Step 5: Validate and save report
+# The LLM will validate and write to validation_report.json
+
+# Step 6: Generate checker report
+# The LLM will generate report and write to checker_report.md
+
+# Step 7: Generate executive summary
+# The LLM will generate summary and write to executive_summary.md
+```
+
+### File Output Structure
+
+Each file operation follows this pattern:
+1. Generate content using the specified prompt
+2. Format content according to requirements
+3. Write to designated file path
+4. Confirm successful write operation
+
+### Verification
+
+After execution, verify files were created:
+
+```bash
+ls -la *.json *.md *.feature
+```
